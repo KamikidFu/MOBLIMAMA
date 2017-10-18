@@ -1,4 +1,4 @@
 package obj;
 
-public class Staff {
+public class Staff extends User {
 }

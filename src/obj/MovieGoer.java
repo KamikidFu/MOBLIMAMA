@@ -1,4 +1,4 @@
 package obj;
 
-public class MovieGoer {
+public class MovieGoer extends User {
 }
