@@ -1,17 +1,26 @@
 package app;
 
 import exception.IllegalDataException;
-import module.*;
+import module.login.LoginModule;
 import obj.*;
 
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.Scanner;
 
-
+/**
+ * Main method is to run whole project
+ * @author Fu, Yunhao
+ * @version 1.1
+ */
 public class Main {
+    /**
+     * Static array lists for each related module use
+     */
     private static ArrayList<User> usersList = new ArrayList<>();
     private static ArrayList<Movie> moviesList = new ArrayList<>();
     private static ArrayList<Cinema> cinemasList = new ArrayList<>();
@@ -19,28 +28,32 @@ public class Main {
     private static ArrayList<Review> reviewsList = new ArrayList<>();
     private static ArrayList<Booking> bookingsList = new ArrayList<>();
 
-    public static void main(String[] args)throws IOException{
-        if (args.length != 1)
+    /**
+     * Application main entry point
+     * @param args Pass data file into application
+     * @throws IOException Throw any IO exceptions
+     * @throws RuntimeException Throw any Run time exceptions
+     */
+    public static void main(String[] args)throws IOException, RuntimeException{
+        //Check the args length, it must contain one argument
+        if (args.length != 2)
             return;
-        boolean dataLoaded =false;
+
+        //dataLoaded is a boolean flag to check if the data file successfully loaded into system
+        //exitFlag is a boolean flag to determine if the user wants to exit from the system
+        boolean dataLoaded =readFile(new File(args[0]));
         boolean exitFlag = false;
-        dataLoaded = readFile(new File(args[0]));
-        if(dataLoaded) {
-            System.out.println("Data Successfully loaded!");
-        }
-        else {
-            System.out.println("Loading data failed!");
-            return;
-        }
+        /*
         while(dataLoaded && !exitFlag){
             LoginModule loginModule = new LoginModule();
             exitFlag = loginModule.run();
         }
+        */
 
         //UpdateFile()
+        updateFile(new File(args[1]));
         return;
     }
-
 
     private static boolean readFile(File file)throws IOException{
         Scanner sc = new Scanner(file);
@@ -48,14 +61,18 @@ public class Main {
         String[] oneLineDataArray;
         ArrayList<String> userNameList = new ArrayList<>();
         ArrayList<String> passWordList = new ArrayList<>();
+        ArrayList<Boolean> userTypeList = new ArrayList<>();
         try {
             while (sc.hasNext()) {
                 oneLineData = sc.nextLine();
                 if (oneLineData.contains("<USER>")) {
                     oneLineData = sc.nextLine();
+                    oneLineDataArray = oneLineData.split(";");
                     while (!oneLineData.contains("</USER>")) {
-                        userNameList.add(oneLineData);
+                        userNameList.add(oneLineDataArray[0]);
+                        userTypeList.add(oneLineDataArray[1].equals("Staff"));
                         oneLineData = sc.nextLine();
+                        oneLineDataArray = oneLineData.split(";");
                     }
                 } else if (oneLineData.contains("<PASSWORD>")) {
                     oneLineData = sc.nextLine();
@@ -68,7 +85,7 @@ public class Main {
                                 "Wrong user data retrieved from file.");
                     }else{
                         for(int i=0;i<userNameList.size();i++){
-                            usersList.add(new User(userNameList.get(i), passWordList.get(i)));
+                            usersList.add(new User(userNameList.get(i), passWordList.get(i),userTypeList.get(i)));
                         }
                     }
                 } else if (oneLineData.contains("<MOVIE>")) {
@@ -207,5 +224,74 @@ public class Main {
             return false;
         }
         return true;
+    }
+
+    private static void updateFile(File file) throws IOException{
+        FileWriter fileWriter = new FileWriter(file,false);
+
+        fileWriter.write("<USER>"+System.lineSeparator());
+        for(User u:usersList){
+            fileWriter.write(u.getUserName()+(u.isStaff()?";Staff"+System.lineSeparator():";MovieGoer"+System.lineSeparator()));
+        }
+        fileWriter.write("</USER>"+System.lineSeparator());
+
+        fileWriter.write("<PASSWORD>"+System.lineSeparator());
+        for(User u:usersList){
+            fileWriter.write(u.getPassword()+System.lineSeparator());
+        }
+        fileWriter.write("</PASSWORD>"+System.lineSeparator());
+
+        fileWriter.write("<MOVIE>"+System.lineSeparator());
+        for(Movie m:moviesList){
+            String[] cast = m.getMovieCast();
+            String castString="";
+            for(int i=0;i<cast.length;i++){
+                castString+=";";
+                castString+=cast[i];
+            }
+            fileWriter.write(m.getMovieName()+";"+m.getMovieType()+";"+m.getMovieStatus()+
+                            ";"+m.getMovieSynopsis()+";"+m.getMovieDirector()+castString+System.lineSeparator());
+        }
+        fileWriter.write("</MOVIE>"+System.lineSeparator());
+
+        fileWriter.write("<CINEMA>"+System.lineSeparator());
+        for(Cinema c:cinemasList){
+            ArrayList<Movie> movie = c.getMoviesList();
+            String movieString="";
+            for(Movie m:movie){
+                movieString+=";";
+                movieString+=m.getMovieName();
+            }
+            fileWriter.write(c.getCinemaName()+";"+c.getCinemaClass()+";"+c.getCinemaCode()+movieString+System.lineSeparator());
+        }
+        fileWriter.write("</CINEMA>"+System.lineSeparator());
+
+        fileWriter.write("<CINEPLEX>"+System.lineSeparator());
+        for(Cineplex c:cineplexesList){
+            ArrayList<Cinema> cinemas = c.getCinemaList();
+            String cinemaString="";
+            for(Cinema ci:cinemas){
+                cinemaString+=";";
+                cinemaString+=ci.getCinemaName();
+            }
+            fileWriter.write(c.getCineplexName()+";"+c.getCineplexLocation()+cinemaString+System.lineSeparator());
+        }
+        fileWriter.write("</CINEPLEX>"+System.lineSeparator());
+
+        fileWriter.write("<REVIEW>"+System.lineSeparator());
+        for (Review r:reviewsList){
+            fileWriter.write(r.getRate()+";"+r.getMovieGoerName()+";"+r.getMovieName()+";"+r.getComment()+System.lineSeparator());
+        }
+        fileWriter.write("</REVIEW>"+System.lineSeparator());
+
+        fileWriter.write("<BOOKING>"+System.lineSeparator());
+        for(Booking b:bookingsList){
+
+            fileWriter.write(b.getBookedTranscationID()+";"+b.getBookedMovieName()+";"+b.getBookedCinemaName()+
+                            ";"+b.getBookedMovieGoerName()+";"+b.getBookedSellDate().getSellDate()+";"+b.getBookedPrice()+System.lineSeparator());
+        }
+        fileWriter.write("</BOOKING>");
+
+        fileWriter.close();
     }
 }
