@@ -15,7 +15,7 @@ import java.util.Scanner;
 /**
  * Main method is to run whole project
  * @author Fu, Yunhao
- * @version 1.1
+ * @version 1.2
  */
 public class Main {
     /**
