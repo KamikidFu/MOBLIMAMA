@@ -36,22 +36,30 @@ public class Main {
      */
     public static void main(String[] args)throws IOException, RuntimeException{
         //Check the args length, it must contain one argument
-        if (args.length != 2)
+        if (args.length != 1)
             return;
 
         //dataLoaded is a boolean flag to check if the data file successfully loaded into system
         //exitFlag is a boolean flag to determine if the user wants to exit from the system
         boolean dataLoaded =readFile(new File(args[0]));
         boolean exitFlag = false;
+
         /*
         while(dataLoaded && !exitFlag){
+            Welcome page
             LoginModule loginModule = new LoginModule();
             exitFlag = loginModule.run();
+            User user = loginModule.getUser();
+
+            if(user.isStaff)
+                StaffModule
+            else
+                MoviegoerModule
         }
         */
 
         //UpdateFile()
-        updateFile(new File(args[1]));
+        updateFile(new File(args[0]));
         return;
     }
 
