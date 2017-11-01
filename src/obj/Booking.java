@@ -1,76 +1,101 @@
 package obj;
 
-public class Booking {
-    private String bookedTranscationID;
+
+import java.text.NumberFormat;
+
+public class Booking implements IBookingBO, IBookingBiz{
+    private String bookedTransactionID;
     private String bookedMovieName;
     private String bookedCinemaName;
+    private String bookedCineplexName;
     private String bookedMovieGoerName;
     private CinemaDate bookedSellDate;
     private double bookedPrice;
+    private int[] ticketinfo;
 
     public Booking() {
         bookedCinemaName="";
+        bookedCineplexName="";
         bookedMovieName="";
         bookedMovieGoerName="";
         bookedPrice=0.0d;
         bookedSellDate=null;
-        bookedTranscationID="";
+        bookedTransactionID="";
+        ticketinfo = new int[3];
     }
 
-    public Booking(String bookedTranscationID, String bookedMovieName, String bookedCinemaName, String bookedMovieGoerName, CinemaDate bookedSellDate, double bookedPrice) {
-        this.bookedTranscationID = bookedTranscationID;
+    public Booking(String bookedTranscationID, String bookedMovieName,
+                   String bookedCinemaName, String bookedCineplexName,
+                   String bookedMovieGoerName, CinemaDate bookedSellDate,
+                   double bookedPrice, int[] ticketinfo) {
+        this.bookedTransactionID = bookedTranscationID;
         this.bookedMovieName = bookedMovieName;
         this.bookedCinemaName = bookedCinemaName;
+        this.bookedCineplexName = bookedCineplexName;
         this.bookedMovieGoerName = bookedMovieGoerName;
         this.bookedSellDate = bookedSellDate;
         this.bookedPrice = bookedPrice;
+        this.ticketinfo = ticketinfo;
     }
 
-    public String getBookedTranscationID() {
-        return bookedTranscationID;
+    @Override
+    public void viewBooking(IUser user){
+        System.out.println("Hello "+user.getUserName()+"! The following is your booking details:");
+        System.out.println("Transaction ID: "+this.bookedTransactionID);
+        System.out.println("Movie Name: "+this.bookedMovieName);
+        System.out.println("Cinema Name: "+ this.bookedCinemaName);
+        System.out.println("Cineplex Name: "+this.bookedCineplexName);
+        System.out.println("Movie Goer Name: "+this.bookedMovieGoerName);
+        System.out.println("Sell Date: "+this.bookedSellDate.getSellDate());
+        System.out.println("Price: "+NumberFormat.getCurrencyInstance().format(this.bookedPrice));
+        System.out.println("Tickets info: ");
+            for(int i=0;i<ticketinfo.length;i++){
+                if(i==0 && ticketinfo[i]!=0)
+                    System.out.println("\tAdult ticket(s): "+ticketinfo[i]);
+                if(i==1 && ticketinfo[i]!=0)
+                    System.out.println("\tChild ticket(s): "+ticketinfo[i]);
+                if(i==2 && ticketinfo[i]!=0)
+                    System.out.println("\tElderly ticket(s): "+ticketinfo[i]);
+            }
     }
 
-    public void setBookedTranscationID(String bookedTranscationID) {
-        this.bookedTranscationID = bookedTranscationID;
+    @Override
+    public String getBookedTransactionID() {
+        return bookedTransactionID;
     }
 
+    @Override
     public String getBookedMovieName() {
         return bookedMovieName;
     }
 
-    public void setBookedMovieName(String bookedMovieName) {
-        this.bookedMovieName = bookedMovieName;
-    }
-
+    @Override
     public String getBookedCinemaName() {
         return bookedCinemaName;
     }
 
-    public void setBookedCinemaName(String bookedCinemaName) {
-        this.bookedCinemaName = bookedCinemaName;
-    }
-
+    @Override
     public String getBookedMovieGoerName() {
         return bookedMovieGoerName;
     }
 
-    public void setBookedMovieGoerName(String bookedMovieGoerName) {
-        this.bookedMovieGoerName = bookedMovieGoerName;
-    }
-
+    @Override
     public CinemaDate getBookedSellDate() {
         return bookedSellDate;
     }
 
-    public void setBookedSellDate(CinemaDate bookedSellDate) {
-        this.bookedSellDate = bookedSellDate;
-    }
-
+    @Override
     public double getBookedPrice() {
         return bookedPrice;
     }
 
-    public void setBookedPrice(double bookedPrice) {
-        this.bookedPrice = bookedPrice;
+    @Override
+    public int[] getTicketinfo() {
+        return ticketinfo;
+    }
+
+    @Override
+    public String getBookedCineplexName() {
+        return bookedCineplexName;
     }
 }

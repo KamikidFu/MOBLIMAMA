@@ -13,34 +13,37 @@ import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
+import app.Main;
+import obj.Cinema;
+import obj.CinemaDate;
 import obj.Movie;
 
-public class MovieMethod {
+public class MovieMethodView {
 
+    private static Scanner scanner = Main.getSystemScanner();
     public static void newMovie() throws ParseException, IOException {
-        List<Movie> mList = new ArrayList<Movie>();
+        List<Movie> mList = app.Main.getMoviesList();
         String mName,mType,mStatus,mSynopsis,mDirector,temp;
         String[] mCast = new String[20];
         Date[] mShowTime=new Date[10];
         int i=1;
-        Scanner sc = new Scanner(System.in);
 
         System.out.println("-------------------------------------");
         System.out.println("New Movie");
         System.out.println("-------------------------------------");
-        System.out.println("/nEnter Movie Title: ");
-        mName = sc.nextLine();
+        System.out.println("Enter Movie Title: ");
+        mName = scanner.nextLine();
         System.out.println("Enter Movie Type (Digital / 3D / Blockbuster) : ");
-        mType = sc.nextLine();
+        mType = scanner.nextLine();
         System.out.println("Enter Movie Status (Coming Soon/ Preview / Now Showing / End of Showing) :");
-        mStatus = sc.nextLine();
+        mStatus = scanner.nextLine();
         System.out.println("Enter Movie Synopsis: ");
-        mSynopsis = sc.nextLine();
+        mSynopsis = scanner.nextLine();
         System.out.println("Enter Movie Director: ");
-        mDirector = sc.nextLine();
+        mDirector = scanner.nextLine();
         do {
             System.out.println("Enter Movie Cast" + i + " Name (Press Enter if no more cast): ");
-            temp = sc.nextLine();
+            temp = scanner.nextLine();
             if (!temp.isEmpty()) {
                 mCast[i-1] = temp;
                 i++;}
@@ -49,7 +52,7 @@ public class MovieMethod {
 
         Movie movie = new Movie(mName,mType,mStatus,mSynopsis,mDirector,mCast);
         mList.add(movie);
-        saveMovie(mList);
+        //saveMovie(mList);
 
         System.out.println("Your Movie has been added successfully.");
         System.out.println("Following are the Movie Details:");
@@ -63,7 +66,7 @@ public class MovieMethod {
         for (int n=0; n<i-1;n++)
             System.out.println(mCast[n]);
         System.out.println("ShowTime : ");
-        for (int n=0; n<i;n++) {
+        for (int n=0; n<i-1;n++) {
             DateFormat outDF = new SimpleDateFormat( "EEE dd MMM yyyy hh:mm aa");
             String printDate = outDF.format(mShowTime[n]);
             System.out.println(printDate);
@@ -85,7 +88,8 @@ public class MovieMethod {
         cineplex = sc.nextLine();
         System.out.println("Enter Cinema showing the movie: ");
         cinema = sc.nextLine();
-
+/*
+Bug: Parse the datetime error
         do {
             DateFormat inDF = new SimpleDateFormat("dd/MM/yyyy hh:mm aa");
             System.out.println("Enter Screening Date (dd/mm/yyyy): ");
@@ -95,11 +99,26 @@ public class MovieMethod {
                 mShowTime[i] = showtime;
                 i++;
             }
+
         } while (!inTime.isEmpty());
+        */
+        do{
+            System.out.println("Enter Screening Date (hh/min/dd/mm/yyyy): ");
+            inTime = sc.nextLine();
+            if(!inTime.isEmpty()){
+                String[] temp = inTime.split("/");
+                CinemaDate inDF = new CinemaDate(Integer.parseInt(temp[4]),
+                        Integer.parseInt(temp[3]),Integer.parseInt(temp[2]),
+                        Integer.parseInt(temp[1]),Integer.parseInt(temp[0]));
+                mShowTime[i] = inDF;
+                i++;
+            }
+
+        }while(!inTime.isEmpty());
 //		} while (!cineplex.isEmpty());
     } //end of newShowTime
 
-
+/*
     public static void saveMovie(List mov) throws IOException {
 
         List mv = new ArrayList();
@@ -123,7 +142,8 @@ public class MovieMethod {
         }
         write(mv);
     } //end of saveMovie
-
+*/
+    /*
     public static void write(List data) throws IOException {
         String filename = "MovieDetails.txt";
         PrintWriter out = new PrintWriter(new FileWriter(filename));
@@ -136,8 +156,10 @@ public class MovieMethod {
             out.close();
         }
     }// end of write
+*/
 
     /** Read the contents of the given file. */
+    /*
     public List read(String fileName) throws IOException {
         List data = new ArrayList();
         Scanner scanner = new Scanner(new FileInputStream(fileName));
@@ -150,5 +172,6 @@ public class MovieMethod {
         }
         return data;
     }// end of read
+    */
 }
 

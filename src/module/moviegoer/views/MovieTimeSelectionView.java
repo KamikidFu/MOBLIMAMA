@@ -2,7 +2,7 @@ package module.moviegoer.views;
 
 import java.util.Scanner;
 
-public class View6
+public class MovieTimeSelectionView
 {
     static Scanner s3 = new Scanner(System.in);
 
@@ -15,6 +15,6 @@ public class View6
 
         showtime = s3.nextInt();
         //Record the showtime info
-        View7.runView7();
+        SeatSelectionView.runView7();
     }
 }

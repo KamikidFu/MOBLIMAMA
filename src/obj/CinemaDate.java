@@ -17,7 +17,7 @@ public class CinemaDate extends Date{
     }
 
     public CinemaDate(boolean isHoliday, int year, int month, int date, int hrs, int min) {
-        super(year,month,date,hrs,min);
+        super(year-1900,month-1,date,hrs,min);
         this.isHoliday = isHoliday;
         this.year = year;
         this.month = month;
@@ -27,7 +27,7 @@ public class CinemaDate extends Date{
     }
 
     public CinemaDate(int Year, int Month, int Date, int Hrs, int Min) {
-        super(Year,Month,Date,Hrs,Min);
+        super(Year-1900,Month-1,Date,Hrs,Min);
         this.year = Year;
         this.month = Month;
         this.date = Date;

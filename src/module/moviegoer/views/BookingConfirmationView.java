@@ -4,7 +4,7 @@ package module.moviegoer.views;
 
 import java.util.Scanner;
 
-public class View8
+public class BookingConfirmationView
 {
     static Scanner s5 = new Scanner(System.in);
 
@@ -28,11 +28,11 @@ public class View8
                 break;
             case 2 :
                 //Reselect Cineplex
-                View3.runView3();
+                CineplexSelectionView.run();
                 break;
             case 3:
                 //Reselect Seats
-                View7.runView7();
+                SeatSelectionView.runView7();
                 break;
             default:
                 //Invalid Selection

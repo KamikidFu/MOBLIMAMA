@@ -1,8 +1,10 @@
 <USER>
-staffuser
+staffUser;Staff
+goerUser;MovieGoer
 </USER>
 <PASSWORD>
 123456
+654321
 </PASSWORD>
 <MOVIE>
 Flatliners;MovieType_1;Coming Soon;Five medical students, obsessed by what lies beyond the confines of life, embark on a daring experiment: by stopping their hearts for short periods, each triggers a near-death experience - giving them a firsthand account of the afterlife.;Niels Arden Oplev;Ellen Page as Courtney Holmes;Diego Luna as Ray
@@ -19,9 +21,9 @@ Cathay Cineplexes;22 Martin Road #03-01 Singapore 239058;Jem;Amk;The Cathay
 </CINEPLEX>
 <REVIEW>
 4.5;Ann;Flatliners;Nice movie
-3;Bob;Geostorm;Good
-4;Cam;Geostorm;Amazing
+3.0;Bob;Geostorm;Good
+4.0;goerUser;Geostorm;Amazing
 </REVIEW>
 <BOOKING>
-JEM201710201200;Geostorm;Jem;Bob;201710201200;35
+JEM201710201200;Geostorm;Jem;Cathay Cineplexes;goerUser;201710201200;35.0;1,0,0
 </BOOKING>
