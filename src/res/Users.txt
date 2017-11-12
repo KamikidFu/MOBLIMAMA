@@ -1,0 +1,8 @@
+staffUser;123456;Staff
+staffMh;112233;Staff
+staffSea;123123;Staff
+goerUser;654321;MovieGoer
+Ann;777777;MovieGoer
+Bob;888888;MovieGoer
+salty_mh;111111;MovieGoer
+Sea;000000;MovieGoer

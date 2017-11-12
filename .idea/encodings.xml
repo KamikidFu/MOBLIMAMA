@@ -5,5 +5,7 @@
     <file url="file://$PROJECT_DIR$/src/module/admin/views/ModifyMovieView.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/obj/IStaff.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/obj/IUser.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/res/Movietimes.txt" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/res/Reviews.txt" charset="UTF-8" />
   </component>
 </project>

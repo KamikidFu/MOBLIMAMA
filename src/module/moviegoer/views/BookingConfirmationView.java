@@ -2,43 +2,23 @@ package module.moviegoer.views;
 
 
 
+import app.Main;
+import module.moviegoer.controllers.MovieGoerMgr;
+import obj.Movie;
+import obj.MovieGoer;
+
+import java.io.IOException;
 import java.util.Scanner;
 
 public class BookingConfirmationView
 {
-    static Scanner s5 = new Scanner(System.in);
+    private static MovieGoerMgr movieGoerMgr = MovieGoerMgr.getMovieGoerMgr();
 
-    public static void runView8(boolean iterateSummary)
-    {
-        int input;
-
-        if(iterateSummary)
-        {
-            //Print the Booking Summary
+    public static void run() throws IOException {
+        if (movieGoerMgr.printBookingDetails()) {
+            System.out.println("Thank you for booking tickets with us!");
+            return;
         }
-
-        System.out.println("Please Confirm Your Decisions...\n(1)Confirm\n(2)Reselect Cineplex\n(1)Reselect Seats");
-
-        input = s5.nextInt();
-
-        switch(input)
-        {
-            case 1:
-                //Confirm The Details Stated In Booking Summary & Leave View 8
-                break;
-            case 2 :
-                //Reselect Cineplex
-                CineplexSelectionView.run();
-                break;
-            case 3:
-                //Reselect Seats
-                SeatSelectionView.runView7();
-                break;
-            default:
-                //Invalid Selection
-                runView8(false);
-        }
-
     }
 }
 

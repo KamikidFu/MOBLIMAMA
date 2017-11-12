@@ -3,12 +3,15 @@ package module.login;
 import app.Main;
 import obj.IUser;
 
+import java.io.BufferedReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class LoginModule {
     private static ArrayList<IUser> IUserArrayList = Main.getUsersList();
     private static Scanner scanner = Main.getSystemScanner();
+    //private static BufferedReader bufferedReader = Main.getSystemBufferedReader();
     private String username;
     private String password;
 
@@ -19,12 +22,12 @@ public class LoginModule {
         this.password=Password;
     }
 
-    public IUser run(){
+    public IUser run() throws IOException{
         System.out.print("Username:");
-        this.username= scanner.next();
+        this.username= scanner.nextLine();
         //Password
         System.out.print("Password:");
-        this.password= scanner.next();
+        this.password= scanner.nextLine();
         //verify()
         IUser logged = verify(this.username,this.password);
         //If true, return user

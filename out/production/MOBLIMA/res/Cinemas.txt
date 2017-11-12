@@ -1,0 +1,9 @@
+Jem;Platinum;JEM;20,24
+Amk;Standard;AMK;18,20
+The Cathay;Platinum;CAT;20,24
+Plaza Singapura;Platinum;PSGV;20,24
+Jurong Point;Standard;JPGV;18,20
+Great World City;Standard;GWCGV;18,20
+JCube;Standard;JCSH;18,20
+Lido;Platinum;LSH;20,24
+Nex;Standard;NSH;18,20

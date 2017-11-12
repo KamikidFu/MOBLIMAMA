@@ -13,11 +13,11 @@ public class Staff implements IStaff {
     public Staff(String Username, String Password){
         this.username=Username;
         this.password=Password;
-        adminModule = new AdminModule(this);
     }
 
     @Override
     public void doAdminJob() throws IOException, ParseException {
+        adminModule = new AdminModule(this);
         adminModule.run();
     }
 

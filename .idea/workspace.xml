@@ -2,48 +2,65 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8508d55c-415c-460a-8a83-fd16f0129341" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/module/admin/AdminModule.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/module/admin/controllers/StaffMgr.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/module/admin/views/Top5ListView.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/module/moviegoer/controllers/MovieGoerMgr.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/module/moviegoer/views/CineplexSelectionView.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/module/moviegoer/views/TicketingView.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/obj/IBookingBO.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/obj/IBookingBiz.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/obj/IMovieGoer.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/obj/IStaff.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/MOBLIMA/obj/User.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/module/admin/Admin.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/module/moviegoer/MovieGoer.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/module/moviegoer/views/View3.java" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dictionaries/kidfu.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/obj/MovieInCinema.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/obj/MovieOnScene.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/MOBLIMA/module/admin/views/ModifyMovieView.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/MOBLIMA/module/admin/views/MovieMethodView.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/module/admin/views/ModifyMovieView.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/module/admin/views/MovieMethodView.java" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/MOBLIMA/app/Main.class" afterPath="$PROJECT_DIR$/out/production/MOBLIMA/app/Main.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/MOBLIMA/module/admin/AdminModule.class" afterPath="$PROJECT_DIR$/out/production/MOBLIMA/module/admin/AdminModule.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/MOBLIMA/module/admin/controllers/StaffMgr.class" afterPath="$PROJECT_DIR$/out/production/MOBLIMA/module/admin/controllers/StaffMgr.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/MOBLIMA/module/admin/views/SystemConfigView.class" afterPath="$PROJECT_DIR$/out/production/MOBLIMA/module/admin/views/SystemConfigView.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/MOBLIMA/module/admin/views/Top5ListView.class" afterPath="$PROJECT_DIR$/out/production/MOBLIMA/module/admin/views/Top5ListView.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/MOBLIMA/module/login/LoginModule.class" afterPath="$PROJECT_DIR$/out/production/MOBLIMA/module/login/LoginModule.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/MOBLIMA/module/moviegoer/MovieGoerModule.class" afterPath="$PROJECT_DIR$/out/production/MOBLIMA/module/moviegoer/MovieGoerModule.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/MOBLIMA/module/moviegoer/controllers/MovieGoerMgr.class" afterPath="$PROJECT_DIR$/out/production/MOBLIMA/module/moviegoer/controllers/MovieGoerMgr.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/MOBLIMA/module/moviegoer/views/BookingConfirmationView.class" afterPath="$PROJECT_DIR$/out/production/MOBLIMA/module/moviegoer/views/BookingConfirmationView.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/MOBLIMA/module/moviegoer/views/CinemaSelectionView.class" afterPath="$PROJECT_DIR$/out/production/MOBLIMA/module/moviegoer/views/CinemaSelectionView.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/MOBLIMA/module/moviegoer/views/CineplexSelectionView.class" afterPath="$PROJECT_DIR$/out/production/MOBLIMA/module/moviegoer/views/CineplexSelectionView.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/MOBLIMA/module/moviegoer/views/MovieGoerMainView.class" afterPath="$PROJECT_DIR$/out/production/MOBLIMA/module/moviegoer/views/MovieGoerMainView.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/MOBLIMA/module/moviegoer/views/MovieSelectionView.class" afterPath="$PROJECT_DIR$/out/production/MOBLIMA/module/moviegoer/views/MovieSelectionView.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/MOBLIMA/module/moviegoer/views/MovieTimeSelectionView.class" afterPath="$PROJECT_DIR$/out/production/MOBLIMA/module/moviegoer/views/MovieTimeSelectionView.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/MOBLIMA/module/moviegoer/views/SeatSelectionView.class" afterPath="$PROJECT_DIR$/out/production/MOBLIMA/module/moviegoer/views/SeatSelectionView.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/MOBLIMA/module/moviegoer/views/TicketingView.class" afterPath="$PROJECT_DIR$/out/production/MOBLIMA/module/moviegoer/views/TicketingView.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/MOBLIMA/obj/Booking.class" afterPath="$PROJECT_DIR$/out/production/MOBLIMA/obj/Booking.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/MOBLIMA/obj/Cinema.class" afterPath="$PROJECT_DIR$/out/production/MOBLIMA/obj/Cinema.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/MOBLIMA/obj/CinemaDate.class" afterPath="$PROJECT_DIR$/out/production/MOBLIMA/obj/CinemaDate.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/MOBLIMA/obj/IBookingBO.class" afterPath="$PROJECT_DIR$/out/production/MOBLIMA/obj/IBookingBO.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/MOBLIMA/obj/Movie.class" afterPath="$PROJECT_DIR$/out/production/MOBLIMA/obj/Movie.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/MOBLIMA/obj/MovieGoer.class" afterPath="$PROJECT_DIR$/out/production/MOBLIMA/obj/MovieGoer.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/MOBLIMA/obj/Review.class" afterPath="$PROJECT_DIR$/out/production/MOBLIMA/obj/Review.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/MOBLIMA/obj/Staff.class" afterPath="$PROJECT_DIR$/out/production/MOBLIMA/obj/Staff.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/MOBLIMA/res/Data.txt" afterPath="$PROJECT_DIR$/out/production/MOBLIMA/res/Data.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/Main.java" afterPath="$PROJECT_DIR$/src/app/Main.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/module/admin/AdminModule.java" afterPath="$PROJECT_DIR$/src/module/admin/AdminModule.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/module/admin/controllers/StaffMgr.java" afterPath="$PROJECT_DIR$/src/module/admin/controllers/StaffMgr.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/module/admin/views/SystemConfigView.java" afterPath="$PROJECT_DIR$/src/module/admin/views/SystemConfigView.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/module/admin/views/Top5ListView.java" afterPath="$PROJECT_DIR$/src/module/admin/views/Top5ListView.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/module/login/LoginModule.java" afterPath="$PROJECT_DIR$/src/module/login/LoginModule.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/module/moviegoer/MovieGoerModule.java" afterPath="$PROJECT_DIR$/src/module/moviegoer/MovieGoerModule.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/module/moviegoer/controllers/MovieGoerMgr.java" afterPath="$PROJECT_DIR$/src/module/moviegoer/controllers/MovieGoerMgr.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/module/moviegoer/views/BookingConfirmationView.java" afterPath="$PROJECT_DIR$/src/module/moviegoer/views/BookingConfirmationView.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/module/moviegoer/views/CinemaSelectionView.java" afterPath="$PROJECT_DIR$/src/module/moviegoer/views/CinemaSelectionView.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/module/moviegoer/views/CineplexSelectionView.java" afterPath="$PROJECT_DIR$/src/module/moviegoer/views/CineplexSelectionView.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/module/moviegoer/views/MovieGoerMainView.java" afterPath="$PROJECT_DIR$/src/module/moviegoer/views/MovieGoerMainView.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/module/moviegoer/views/MovieSelectionView.java" afterPath="$PROJECT_DIR$/src/module/moviegoer/views/MovieSelectionView.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/module/moviegoer/views/MovieTimeSelectionView.java" afterPath="$PROJECT_DIR$/src/module/moviegoer/views/MovieTimeSelectionView.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/module/moviegoer/views/SeatSelectionView.java" afterPath="$PROJECT_DIR$/src/module/moviegoer/views/SeatSelectionView.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/module/moviegoer/views/TicketingView.java" afterPath="$PROJECT_DIR$/src/module/moviegoer/views/TicketingView.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/obj/Booking.java" afterPath="$PROJECT_DIR$/src/obj/Booking.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/obj/Cinema.java" afterPath="$PROJECT_DIR$/src/obj/Cinema.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/obj/CinemaDate.java" afterPath="$PROJECT_DIR$/src/obj/CinemaDate.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/obj/IBookingBO.java" afterPath="$PROJECT_DIR$/src/obj/IBookingBO.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/obj/Movie.java" afterPath="$PROJECT_DIR$/src/obj/Movie.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/obj/MovieGoer.java" afterPath="$PROJECT_DIR$/src/obj/MovieGoer.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/obj/Review.java" afterPath="$PROJECT_DIR$/src/obj/Review.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/obj/Staff.java" afterPath="$PROJECT_DIR$/src/obj/Staff.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/Data.txt" afterPath="$PROJECT_DIR$/src/res/Data.txt" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/DataStructure.txt" afterPath="$PROJECT_DIR$/src/res/DataStructure.txt" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/module/admin/views/ModifyMovie.java" afterPath="$PROJECT_DIR$/src/module/admin/views/ModifyMovieView.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/module/admin/views/MovieMethod.java" afterPath="$PROJECT_DIR$/src/module/admin/views/MovieMethodView.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/module/admin/views/SystemConfig.java" afterPath="$PROJECT_DIR$/src/module/admin/views/SystemConfigView.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/module/moviegoer/views/View2.java" afterPath="$PROJECT_DIR$/src/module/moviegoer/views/MovieGoerMainView.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/module/moviegoer/views/View4.java" afterPath="$PROJECT_DIR$/src/module/moviegoer/views/MovieSelectionView.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/module/moviegoer/views/View5.java" afterPath="$PROJECT_DIR$/src/module/moviegoer/views/CinemaSelectionView.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/module/moviegoer/views/View6.java" afterPath="$PROJECT_DIR$/src/module/moviegoer/views/MovieTimeSelectionView.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/module/moviegoer/views/View7.java" afterPath="$PROJECT_DIR$/src/module/moviegoer/views/SeatSelectionView.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/module/moviegoer/views/View8.java" afterPath="$PROJECT_DIR$/src/module/moviegoer/views/BookingConfirmationView.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/obj/User.java" afterPath="$PROJECT_DIR$/src/obj/IUser.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/res/Data.txt" afterPath="$PROJECT_DIR$/src/res/Data.txt" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -52,6 +69,11 @@
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/MOBLIMA$Main.coverage" NAME="Main Coverage Results" MODIFIED="1510235003523" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>app.*</FILTER>
+    </SUITE>
   </component>
   <component name="DatabaseView">
     <option name="SHOW_INTERMEDIATE" value="true" />
@@ -68,214 +90,7 @@
     <favorites_list name="MOBLIMA" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="vertical" split-proportion="0.5657143">
-      <split-first>
-        <splitter split-orientation="horizontal" split-proportion="0.4213592">
-          <split-first>
-            <leaf>
-              <file leaf-file-name="MovieGoer.java" pinned="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/src/obj/MovieGoer.java">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="224">
-                      <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-                      <folding />
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-              <file leaf-file-name="MovieGoerMgr.java" pinned="false" current-in-tab="true">
-                <entry file="file://$PROJECT_DIR$/src/module/moviegoer/controllers/MovieGoerMgr.java">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="131">
-                      <caret line="61" column="0" lean-forward="false" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
-                      <folding>
-                        <element signature="imports" expanded="true" />
-                        <element signature="e#1772#1773#0" expanded="true" />
-                        <element signature="e#1845#1846#0" expanded="true" />
-                        <element signature="e#1894#1895#0" expanded="true" />
-                      </folding>
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-              <file leaf-file-name="Booking.java" pinned="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/src/obj/Booking.java">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="272">
-                      <caret line="29" column="58" lean-forward="true" selection-start-line="29" selection-start-column="58" selection-end-line="29" selection-end-column="58" />
-                      <folding>
-                        <element signature="e#3128#3129#0" expanded="true" />
-                        <element signature="e#3161#3162#0" expanded="true" />
-                        <element signature="e#3220#3221#0" expanded="true" />
-                        <element signature="e#3261#3262#0" expanded="true" />
-                      </folding>
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-              <file leaf-file-name="Data.txt" pinned="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/src/res/Data.txt">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="432">
-                      <caret line="27" column="79" lean-forward="true" selection-start-line="27" selection-start-column="79" selection-end-line="27" selection-end-column="79" />
-                      <folding />
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-            </leaf>
-          </split-first>
-          <split-second>
-            <leaf>
-              <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/src/app/Main.java">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="259">
-                      <caret line="74" column="10" lean-forward="false" selection-start-line="74" selection-start-column="10" selection-end-line="74" selection-end-column="10" />
-                      <folding>
-                        <element signature="e#15724#15725#0" expanded="true" />
-                        <element signature="e#15756#15757#0" expanded="true" />
-                        <element signature="e#15804#15805#0" expanded="true" />
-                        <element signature="e#15840#15841#0" expanded="true" />
-                        <marker date="1509553526422" expanded="true" signature="2441:2635" ph="{...}" />
-                      </folding>
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-              <file leaf-file-name="MovieSelectionView.java" pinned="false" current-in-tab="true">
-                <entry file="file://$PROJECT_DIR$/src/module/moviegoer/views/MovieSelectionView.java">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="256">
-                      <caret line="25" column="27" lean-forward="true" selection-start-line="25" selection-start-column="27" selection-end-line="25" selection-end-column="27" />
-                      <folding>
-                        <element signature="imports" expanded="true" />
-                      </folding>
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-              <file leaf-file-name="MovieGoerModule.java" pinned="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/src/module/moviegoer/MovieGoerModule.java">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="224">
-                      <caret line="16" column="14" lean-forward="true" selection-start-line="16" selection-start-column="14" selection-end-line="16" selection-end-column="14" />
-                      <folding />
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-              <file leaf-file-name="MovieGoerMainView.java" pinned="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/src/module/moviegoer/views/MovieGoerMainView.java">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="241">
-                      <caret line="17" column="45" lean-forward="true" selection-start-line="17" selection-start-column="45" selection-end-line="17" selection-end-column="45" />
-                      <folding>
-                        <element signature="imports" expanded="true" />
-                      </folding>
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-              <file leaf-file-name="CinemaSelectionView.java" pinned="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/src/module/moviegoer/views/CinemaSelectionView.java">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="224">
-                      <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-                      <folding>
-                        <element signature="imports" expanded="true" />
-                      </folding>
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-              <file leaf-file-name="CineplexSelectionView.java" pinned="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/src/module/moviegoer/views/CineplexSelectionView.java">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="304">
-                      <caret line="19" column="106" lean-forward="false" selection-start-line="19" selection-start-column="70" selection-end-line="19" selection-end-column="106" />
-                      <folding>
-                        <element signature="imports" expanded="true" />
-                      </folding>
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-            </leaf>
-          </split-second>
-        </splitter>
-      </split-first>
-      <split-second>
-        <splitter split-orientation="horizontal" split-proportion="0.36763754">
-          <split-first>
-            <leaf>
-              <file leaf-file-name="Staff.java" pinned="false" current-in-tab="true">
-                <entry file="file://$PROJECT_DIR$/src/obj/Staff.java">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="91">
-                      <caret line="10" column="34" lean-forward="false" selection-start-line="10" selection-start-column="34" selection-end-line="10" selection-end-column="34" />
-                      <folding>
-                        <element signature="imports" expanded="true" />
-                      </folding>
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-            </leaf>
-          </split-first>
-          <split-second>
-            <leaf>
-              <file leaf-file-name="AdminModule.java" pinned="false" current-in-tab="true">
-                <entry file="file://$PROJECT_DIR$/src/module/admin/AdminModule.java">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="-224">
-                      <caret line="29" column="40" lean-forward="false" selection-start-line="29" selection-start-column="40" selection-end-line="29" selection-end-column="40" />
-                      <folding>
-                        <marker date="1509553424328" expanded="true" signature="2063:2069" ph="{...}" />
-                      </folding>
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-              <file leaf-file-name="Top5ListView.java" pinned="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/src/module/admin/views/Top5ListView.java">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="176">
-                      <caret line="14" column="39" lean-forward="false" selection-start-line="14" selection-start-column="39" selection-end-line="14" selection-end-column="39" />
-                      <folding>
-                        <element signature="imports" expanded="true" />
-                      </folding>
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-              <file leaf-file-name="StaffMgr.java" pinned="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/src/module/admin/controllers/StaffMgr.java">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="288">
-                      <caret line="26" column="5" lean-forward="true" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
-                      <folding>
-                        <element signature="imports" expanded="true" />
-                      </folding>
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-              <file leaf-file-name="SystemConfigView.java" pinned="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/src/module/admin/views/SystemConfigView.java">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="528">
-                      <caret line="41" column="22" lean-forward="false" selection-start-line="41" selection-start-column="22" selection-end-line="41" selection-end-column="22" />
-                      <folding />
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-            </leaf>
-          </split-second>
-        </splitter>
-      </split-second>
-    </splitter>
+    <leaf />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -284,6 +99,16 @@
         <option value="Class" />
       </list>
     </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>salty_mh</find>
+      <find>buffer</find>
+      <find>bufferedReader.read()</find>
+      <find>printBookingDetails</find>
+      <find>nextInt()</find>
+      <find>nextInt</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -296,57 +121,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/obj/Review.java" />
-        <option value="$PROJECT_DIR$/src/module/LoginModule.java" />
-        <option value="$PROJECT_DIR$/res/Data.txt" />
-        <option value="$PROJECT_DIR$/src/module/login/login/LoginModule.java" />
-        <option value="$PROJECT_DIR$/src/module/admin/AdminHome.java" />
-        <option value="$PROJECT_DIR$/src/module/admin/SystemConfig.java" />
-        <option value="$PROJECT_DIR$/src/module/admin/views/SystemConfig.java" />
-        <option value="$PROJECT_DIR$/src/module/moviegoer/views/View7.java" />
-        <option value="$PROJECT_DIR$/src/module/moviegoer/views/View6.java" />
-        <option value="$PROJECT_DIR$/src/module/moviegoer/MovieGoer.java" />
-        <option value="$PROJECT_DIR$/src/obj/CinemaDate.java" />
-        <option value="$PROJECT_DIR$/src/module/admin/views/MovieMethod.java" />
-        <option value="$PROJECT_DIR$/src/module/admin/views/ModifyMovie.java" />
-        <option value="$PROJECT_DIR$/src/module/moviegoer/views/View2.java" />
-        <option value="$PROJECT_DIR$/src/module/moviegoer/views/View3.java" />
-        <option value="$PROJECT_DIR$/src/module/moviegoer/views/View8.java" />
-        <option value="$PROJECT_DIR$/src/module/moviegoer/views/CineplexSelection.java" />
         <option value="$PROJECT_DIR$/src/module/moviegoer/views/View4.java" />
-        <option value="$PROJECT_DIR$/src/module/admin/views/MovieMethodView.java" />
         <option value="$PROJECT_DIR$/src/module/admin/Admin.java" />
-        <option value="$PROJECT_DIR$/src/module/admin/views/Top5ListView.java" />
-        <option value="$PROJECT_DIR$/src/module/login/LoginModule.java" />
         <option value="$PROJECT_DIR$/src/obj/User.java" />
         <option value="$PROJECT_DIR$/src/obj/IUser.java" />
-        <option value="$PROJECT_DIR$/src/obj/IMovieGoer.java" />
         <option value="$PROJECT_DIR$/src/obj/IBooking.java" />
         <option value="$PROJECT_DIR$/src/obj/IBookingBiz.java" />
-        <option value="$PROJECT_DIR$/src/obj/IStaff.java" />
-        <option value="$PROJECT_DIR$/src/obj/MovieGoer.java" />
-        <option value="$PROJECT_DIR$/src/obj/Staff.java" />
         <option value="$PROJECT_DIR$/src/obj/IMgr.java" />
-        <option value="$PROJECT_DIR$/src/module/admin/controllers/StaffMgr.java" />
-        <option value="$PROJECT_DIR$/src/module/moviegoer/views/MovieGoerMainView.java" />
-        <option value="$PROJECT_DIR$/src/module/moviegoer/MovieGoerModule.java" />
-        <option value="$PROJECT_DIR$/src/module/moviegoer/controllers/MovieGoerMgr.java" />
-        <option value="$PROJECT_DIR$/src/module/admin/views/ModifyMovieView.java" />
-        <option value="$PROJECT_DIR$/src/module/admin/views/SystemConfigView.java" />
-        <option value="$PROJECT_DIR$/src/module/moviegoer/views/CineplexSelectionView.java" />
-        <option value="$PROJECT_DIR$/src/module/moviegoer/views/MovieTimeSelectionView.java" />
-        <option value="$PROJECT_DIR$/src/module/moviegoer/views/BookingConfirmationView.java" />
         <option value="$PROJECT_DIR$/src/obj/Ticket.java" />
-        <option value="$PROJECT_DIR$/src/obj/IBookingBO.java" />
-        <option value="$PROJECT_DIR$/src/module/moviegoer/views/TicketingView.java" />
-        <option value="$PROJECT_DIR$/src/obj/Movie.java" />
-        <option value="$PROJECT_DIR$/src/obj/Booking.java" />
-        <option value="$PROJECT_DIR$/src/module/moviegoer/views/SeatSelectionView.java" />
         <option value="$PROJECT_DIR$/src/module/admin/AdminModule.java" />
+        <option value="$PROJECT_DIR$/src/module/moviegoer/views/MovieInfoView.java" />
+        <option value="$PROJECT_DIR$/src/obj/Cinema.java" />
+        <option value="$PROJECT_DIR$/src/obj/MovieOnScene.java" />
         <option value="$PROJECT_DIR$/src/res/Data.txt" />
-        <option value="$PROJECT_DIR$/src/app/Main.java" />
-        <option value="$PROJECT_DIR$/src/module/moviegoer/views/CinemaSelectionView.java" />
+        <option value="$PROJECT_DIR$/src/obj/IBookingBO.java" />
+        <option value="$PROJECT_DIR$/src/module/admin/views/NewMovieView.java" />
+        <option value="$PROJECT_DIR$/src/module/admin/views/EditMovieMainView.java" />
+        <option value="$PROJECT_DIR$/src/module/moviegoer/views/BookingConfirmationView.java" />
+        <option value="$PROJECT_DIR$/src/res/Bookings.txt" />
         <option value="$PROJECT_DIR$/src/module/moviegoer/views/MovieSelectionView.java" />
+        <option value="$PROJECT_DIR$/src/obj/TicketPrice.java" />
+        <option value="$PROJECT_DIR$/src/res/Reviews.txt" />
+        <option value="$PROJECT_DIR$/src/res/Movietimes.txt" />
+        <option value="$PROJECT_DIR$/src/res/SysCon.txt" />
+        <option value="$PROJECT_DIR$/src/obj/Movie.java" />
+        <option value="$PROJECT_DIR$/src/module/moviegoer/MovieGoerModule.java" />
+        <option value="$PROJECT_DIR$/src/obj/Staff.java" />
+        <option value="$PROJECT_DIR$/src/obj/IStaff.java" />
+        <option value="$PROJECT_DIR$/src/obj/IMovieGoer.java" />
+        <option value="$PROJECT_DIR$/src/obj/MovieGoer.java" />
+        <option value="$PROJECT_DIR$/src/module/admin/views/EditChosenMovieView.java" />
+        <option value="$PROJECT_DIR$/src/module/admin/views/MovieMethodView.java" />
+        <option value="$PROJECT_DIR$/src/module/login/LoginModule.java" />
+        <option value="$PROJECT_DIR$/src/module/moviegoer/views/SeatSelectionView.java" />
+        <option value="$PROJECT_DIR$/src/module/admin/views/DisplayTicketPrice.java" />
+        <option value="$PROJECT_DIR$/src/module/admin/views/ModifyMovieView.java" />
+        <option value="$PROJECT_DIR$/src/module/moviegoer/views/MovieTimeSelectionView.java" />
+        <option value="$PROJECT_DIR$/src/module/moviegoer/views/CinemaSelectionView.java" />
+        <option value="$PROJECT_DIR$/src/module/moviegoer/views/CineplexSelectionView.java" />
+        <option value="$PROJECT_DIR$/src/module/moviegoer/views/TicketingView.java" />
+        <option value="$PROJECT_DIR$/src/module/moviegoer/controllers/MovieGoerMgr.java" />
+        <option value="$PROJECT_DIR$/src/obj/MovieInCinema.java" />
+        <option value="$PROJECT_DIR$/src/module/moviegoer/views/MovieGoerMainView.java" />
+        <option value="$PROJECT_DIR$/src/module/admin/views/AdminMainView.java" />
+        <option value="$PROJECT_DIR$/src/app/Main.java" />
+        <option value="$PROJECT_DIR$/src/module/admin/views/EditTicketPrice.java" />
+        <option value="$PROJECT_DIR$/src/obj/Review.java" />
+        <option value="$PROJECT_DIR$/src/module/admin/views/Top5ListView.java" />
+        <option value="$PROJECT_DIR$/src/obj/Booking.java" />
+        <option value="$PROJECT_DIR$/src/obj/CinemaDate.java" />
+        <option value="$PROJECT_DIR$/src/module/admin/views/SystemConfigView.java" />
+        <option value="$PROJECT_DIR$/src/module/admin/controllers/StaffMgr.java" />
       </list>
     </option>
   </component>
@@ -357,9 +182,32 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="950" />
-    <option name="width" value="980" />
-    <option name="height" value="1150" />
+    <option name="x" value="-7" />
+    <option name="width" value="974" />
+    <option name="height" value="1047" />
+  </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State>
+            <id />
+          </State>
+          <State>
+            <id>Android &gt; Lint &gt; Correctness</id>
+          </State>
+          <State>
+            <id>Android &gt; Lint &gt; Performance</id>
+          </State>
+          <State>
+            <id>Java</id>
+          </State>
+          <State>
+            <id>Portability issuesJava</id>
+          </State>
+        </expanded-state>
+      </profile-state>
+    </entry>
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -376,8 +224,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
@@ -479,14 +325,16 @@
         </subPane>
       </pane>
       <pane id="PackagesPane" />
+      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="SearchEverywhereHistoryKey" value="file encoding&#9;ACTION&#9;ChangeFileEncodingAction&#10;confi&#9;ACTION&#9;WebDeployment.Configuration&#10;font&#9;ACTION&#9;EditorIncreaseFontSize" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.General" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
+    <property name="SearchEverywhereHistoryKey" value="bufferR&#9;PSI&#9;JAVA://java.io.BufferedReader&#10;seq&#9;ACTION&#9;ActivateSequenceToolWindow&#10;sequen&#9;ACTION&#9;ActivateSequenceToolWindow&#10;trypar&#9;PSI&#9;JAVA://module.moviegoer.controllers.MovieGoerMgr#tryParseInteger&#10;file encoding&#9;ACTION&#9;ChangeFileEncodingAction&#10;confi&#9;ACTION&#9;WebDeployment.Configuration&#10;font&#9;ACTION&#9;EditorIncreaseFontSize" />
+    <property name="settings.editor.selected.configurable" value="preferences.general" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -669,11 +517,36 @@
       <workItem from="1509463542683" duration="2721000" />
       <workItem from="1509526752109" duration="603000" />
       <workItem from="1509538237504" duration="15483000" />
+      <workItem from="1509635369493" duration="11000" />
+      <workItem from="1509635407292" duration="1776000" />
+      <workItem from="1509683879917" duration="2722000" />
+      <workItem from="1509688129675" duration="1941000" />
+      <workItem from="1509808810517" duration="4147000" />
+      <workItem from="1509896931384" duration="6000" />
+      <workItem from="1509958477114" duration="23915000" />
+      <workItem from="1510042001349" duration="1082000" />
+      <workItem from="1510044884925" duration="47000" />
+      <workItem from="1510124145893" duration="3647000" />
+      <workItem from="1510140477765" duration="14543000" />
+      <workItem from="1510155473163" duration="731000" />
+      <workItem from="1510188215410" duration="166000" />
+      <workItem from="1510188410951" duration="970000" />
+      <workItem from="1510196934902" duration="277000" />
+      <workItem from="1510285448079" duration="797000" />
+      <workItem from="1510296194928" duration="478000" />
+      <workItem from="1510315278688" duration="1800000" />
+      <workItem from="1510320181878" duration="2322000" />
+      <workItem from="1510322563878" duration="3429000" />
+      <workItem from="1510401827501" duration="8666000" />
+      <workItem from="1510487707091" duration="8641000" />
+      <workItem from="1510496943322" duration="67000" />
+      <workItem from="1510497022044" duration="12524000" />
+      <workItem from="1510511047864" duration="205000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="66389000" />
+    <option name="totallyTimeSpent" value="177023000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -688,26 +561,26 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3264418" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297062" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18171926" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32944915" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29815015" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29815015" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297062" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Sequence" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297062" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297062" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17643923" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18283582" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32861805" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2383025" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25353646" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -715,37 +588,9 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Dynamic Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32861805" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
-    <layout-to-restore>
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32944915" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Dynamic Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2383025" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3269639" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29815015" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297062" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17643923" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32861805" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
-    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -755,54 +600,66 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="65" />
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/app/Main.java</url>
+          <line>60</line>
+          <properties />
+          <option name="timeStamp" value="233" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="234" />
     </breakpoint-manager>
-    <watches-manager />
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="CinemaDate.holidayList" language="JAVA" />
+      </configuration>
+    </watches-manager>
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/module/login.java" />
-    <entry file="file://$PROJECT_DIR$/src/obj/Staf.java" />
-    <entry file="file://$PROJECT_DIR$/src/module/MoviegoerModule.java" />
-    <entry file="file://$PROJECT_DIR$/src/module/AdminModule.java" />
-    <entry file="file://$PROJECT_DIR$/src/exception/IllegalDataException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="13" column="5" lean-forward="true" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DataResource.properties" />
-    <entry file="file://$PROJECT_DIR$/src/obj/Cinema.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="329">
-          <caret line="31" column="35" lean-forward="false" selection-start-line="31" selection-start-column="35" selection-end-line="31" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/module/login/login/LoginModule.java" />
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/Temp1_MOBLIMA(25102017).zip/MOBLIMA/src/app/Main.java" />
-    <entry file="file://$PROJECT_DIR$/src/module/moviegoer/views/NEW.java" />
-    <entry file="file://$PROJECT_DIR$/src/module/admin/views/AdminHome.java" />
-    <entry file="file://$PROJECT_DIR$/src/obj/Review.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="22" column="29" lean-forward="false" selection-start-line="22" selection-start-column="29" selection-end-line="22" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/obj/Cineplex.java">
+    <entry file="file://$PROJECT_DIR$/src/obj/Rating.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="160">
-          <caret line="10" column="37" lean-forward="false" selection-start-line="10" selection-start-column="37" selection-end-line="10" selection-end-column="37" />
+          <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/module/moviegoer/MovieGoer.java" />
-    <entry file="file://$PROJECT_DIR$/src/module/moviegoer/views/MovieGoerModule.java" />
+    <entry file="file://$PROJECT_DIR$/src/obj/MovieOnScene.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="14" column="36" lean-forward="false" selection-start-line="14" selection-start-column="36" selection-end-line="14" selection-end-column="36" />
+          <folding>
+            <element signature="e#1339#1340#0" expanded="false" />
+            <element signature="e#1377#1378#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/res/Bookings.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="48">
+          <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/res/Cineplexs.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/res/Data.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="587">
+          <caret line="41" column="0" lean-forward="false" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/res/DataStructure.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -810,49 +667,88 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_144/src.zip!/java/util/Calendar.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-28243">
-          <caret line="1769" column="0" lean-forward="false" selection-start-line="1769" selection-start-column="0" selection-end-line="1769" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/obj/CinemaDate.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="26" column="5" lean-forward="true" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MovieDetails.txt">
+    <entry file="file://$PROJECT_DIR$/src/res/MovieOnScenes.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/res/Movies.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/res/Reviews.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="112">
+          <caret line="7" column="5" lean-forward="true" selection-start-line="7" selection-start-column="5" selection-end-line="7" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/res/Movietimes.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="5" column="41" lean-forward="false" selection-start-line="5" selection-start-column="33" selection-end-line="5" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/res/Users.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/res/Cinemas.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_144/src.zip!/java/util/Scanner.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="16">
+          <caret line="1539" column="0" lean-forward="false" selection-start-line="1539" selection-start-column="0" selection-end-line="1539" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/obj/Movie.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="448">
+          <caret line="90" column="47" lean-forward="false" selection-start-line="90" selection-start-column="47" selection-end-line="90" selection-end-column="47" />
+          <folding>
+            <element signature="e#1419#1420#0" expanded="false" />
+            <element signature="e#1451#1452#0" expanded="false" />
+            <element signature="e#2300#2301#0" expanded="false" />
+            <element signature="e#2354#2355#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/obj/IStaff.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="7" column="20" lean-forward="false" selection-start-line="7" selection-start-column="20" selection-end-line="7" selection-end-column="20" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/module/admin/views/MovieMethodView.java">
+    <entry file="file://$PROJECT_DIR$/src/obj/Staff.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="147" column="27" lean-forward="false" selection-start-line="147" selection-start-column="27" selection-end-line="147" selection-end-column="27" />
+        <state relative-caret-position="256">
+          <caret line="19" column="44" lean-forward="true" selection-start-line="19" selection-start-column="44" selection-end-line="19" selection-end-column="44" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/obj/IUser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="64">
-          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/obj/IBooking.java">
-      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="32">
-          <caret line="2" column="33" lean-forward="true" selection-start-line="2" selection-start-column="33" selection-end-line="2" selection-end-column="33" />
+          <caret line="2" column="17" lean-forward="false" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
           <folding />
         </state>
       </provider>
@@ -860,140 +756,55 @@
     <entry file="file://$PROJECT_DIR$/src/obj/IMovieGoer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="64">
-          <caret line="4" column="26" lean-forward="true" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="26" />
+          <caret line="4" column="24" lean-forward="false" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="24" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/obj/IStaff.java">
+    <entry file="file://$PROJECT_DIR$/src/obj/MovieGoer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="32">
-          <caret line="2" column="39" lean-forward="false" selection-start-line="2" selection-start-column="39" selection-end-line="2" selection-end-column="39" />
+        <state relative-caret-position="352">
+          <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="uml://JAVA/app.Main">
-      <provider selected="true" editor-type-id="UmlEditorProvider">
-        <state>
-          <ID>JAVA</ID>
-          <OriginalElement>app.Main</OriginalElement>
-          <nodes>
-            <node x="" y="">app.Main</node>
-          </nodes>
-          <notes />
-          <edges />
-          <settings layout="Hierarchic Group" zoom="1.0" x="38.5" y="15.0" />
-          <SelectedNodes />
-          <Categories />
-          <SCOPE>All</SCOPE>
-          <VISIBILITY>private</VISIBILITY>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/obj/IMgr.java">
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_144/src.zip!/java/io/BufferedReader.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="32">
-          <caret line="2" column="23" lean-forward="true" selection-start-line="2" selection-start-column="23" selection-end-line="2" selection-end-column="23" />
-          <folding />
+        <state relative-caret-position="194">
+          <caret line="69" column="13" lean-forward="false" selection-start-line="69" selection-start-column="13" selection-end-line="69" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/module/admin/views/ModifyMovieView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="416">
-          <caret line="48" column="22" lean-forward="false" selection-start-line="48" selection-start-column="22" selection-end-line="48" selection-end-column="22" />
-          <folding>
-            <element signature="e#471#478#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/module/moviegoer/views/MovieTimeSelectionView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
-          <caret line="16" column="34" lean-forward="false" selection-start-line="16" selection-start-column="34" selection-end-line="16" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/module/moviegoer/views/BookingConfirmationView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="26" column="72" lean-forward="false" selection-start-line="26" selection-start-column="72" selection-end-line="26" selection-end-column="72" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/obj/Ticket.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="32">
-          <caret line="2" column="21" lean-forward="false" selection-start-line="2" selection-start-column="21" selection-end-line="2" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/obj/IBookingBiz.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="7" column="33" lean-forward="true" selection-start-line="7" selection-start-column="33" selection-end-line="7" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/obj/IBookingBO.java">
+    <entry file="file://$PROJECT_DIR$/src/module/admin/views/EditChosenMovieView.java" />
+    <entry file="file://$PROJECT_DIR$/src/module/admin/views/EditMovieMainView.java" />
+    <entry file="file://$PROJECT_DIR$/src/module/admin/views/ModifyMovieView.java" />
+    <entry file="file://$PROJECT_DIR$/src/module/login/LoginModule.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="176">
-          <caret line="11" column="36" lean-forward="true" selection-start-line="11" selection-start-column="36" selection-end-line="11" selection-end-column="36" />
+          <caret line="29" column="42" lean-forward="false" selection-start-line="29" selection-start-column="42" selection-end-line="29" selection-end-column="42" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/obj/Movie.java">
+    <entry file="file://$PROJECT_DIR$/src/module/admin/views/MovieMethodView.java" />
+    <entry file="file://$PROJECT_DIR$/src/module/moviegoer/views/MovieSelectionView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="311">
-          <caret line="36" column="0" lean-forward="true" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
-          <folding>
-            <element signature="e#1005#1006#0" expanded="true" />
-            <element signature="e#1048#1049#0" expanded="true" />
-            <element signature="e#1103#1104#0" expanded="true" />
-            <element signature="e#1139#1140#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/module/moviegoer/views/TicketingView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="8" column="78" lean-forward="true" selection-start-line="8" selection-start-column="78" selection-end-line="9" selection-end-column="53" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="64">
+          <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/module/moviegoer/views/SeatSelectionView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="15" column="10" lean-forward="false" selection-start-line="15" selection-start-column="10" selection-end-line="15" selection-end-column="10" />
+        <state relative-caret-position="496">
+          <caret line="36" column="0" lean-forward="false" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/obj/Booking.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="29" column="58" lean-forward="true" selection-start-line="29" selection-start-column="58" selection-end-line="29" selection-end-column="58" />
-          <folding>
-            <element signature="e#3128#3129#0" expanded="true" />
-            <element signature="e#3161#3162#0" expanded="true" />
-            <element signature="e#3220#3221#0" expanded="true" />
-            <element signature="e#3261#3262#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/module/login/LoginModule.java">
+    <entry file="file://$PROJECT_DIR$/src/module/moviegoer/views/MovieTimeSelectionView.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="288">
           <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
@@ -1001,142 +812,201 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/obj/MovieGoer.java">
+    <entry file="file://$PROJECT_DIR$/src/obj/IBookingBiz.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+        <state relative-caret-position="96">
+          <caret line="6" column="17" lean-forward="false" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/obj/Staff.java">
+    <entry file="file://$PROJECT_DIR$/src/obj/Cinema.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="91">
-          <caret line="10" column="34" lean-forward="false" selection-start-line="10" selection-start-column="34" selection-end-line="10" selection-end-column="34" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/module/admin/views/Top5ListView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="14" column="39" lean-forward="false" selection-start-line="14" selection-start-column="39" selection-end-line="14" selection-end-column="39" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/module/admin/views/SystemConfigView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="528">
-          <caret line="41" column="22" lean-forward="false" selection-start-line="41" selection-start-column="22" selection-end-line="41" selection-end-column="22" />
+        <state relative-caret-position="64">
+          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/module/admin/controllers/StaffMgr.java">
+    <entry file="file://$PROJECT_DIR$/src/module/moviegoer/views/CineplexSelectionView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="26" column="5" lean-forward="true" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="336">
+          <caret line="27" column="1" lean-forward="false" selection-start-line="27" selection-start-column="1" selection-end-line="27" selection-end-column="1" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/module/admin/AdminModule.java">
+    <entry file="file://$PROJECT_DIR$/src/module/moviegoer/MovieGoerModule.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-224">
-          <caret line="29" column="40" lean-forward="false" selection-start-line="29" selection-start-column="40" selection-end-line="29" selection-end-column="40" />
-          <folding>
-            <marker date="1509553424328" expanded="true" signature="2063:2069" ph="{...}" />
-          </folding>
+        <state relative-caret-position="128">
+          <caret line="13" column="35" lean-forward="true" selection-start-line="13" selection-start-column="35" selection-end-line="13" selection-end-column="35" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/Main.java">
+    <entry file="file://$PROJECT_DIR$/src/module/moviegoer/views/TicketingView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="259">
-          <caret line="74" column="10" lean-forward="false" selection-start-line="74" selection-start-column="10" selection-end-line="74" selection-end-column="10" />
-          <folding>
-            <element signature="e#15724#15725#0" expanded="true" />
-            <element signature="e#15756#15757#0" expanded="true" />
-            <element signature="e#15804#15805#0" expanded="true" />
-            <element signature="e#15840#15841#0" expanded="true" />
-            <marker date="1509553526422" expanded="true" signature="2441:2635" ph="{...}" />
-          </folding>
+        <state relative-caret-position="192">
+          <caret line="23" column="51" lean-forward="true" selection-start-line="23" selection-start-column="51" selection-end-line="23" selection-end-column="51" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/res/Data.txt">
+    <entry file="file://$PROJECT_DIR$/src/obj/MovieInCinema.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="432">
-          <caret line="27" column="79" lean-forward="true" selection-start-line="27" selection-start-column="79" selection-end-line="27" selection-end-column="79" />
+          <caret line="30" column="73" lean-forward="true" selection-start-line="30" selection-start-column="73" selection-end-line="30" selection-end-column="73" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/module/moviegoer/controllers/MovieGoerMgr.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="131">
-          <caret line="61" column="0" lean-forward="false" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1772#1773#0" expanded="true" />
-            <element signature="e#1845#1846#0" expanded="true" />
-            <element signature="e#1894#1895#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="4763">
+          <caret line="415" column="58" lean-forward="false" selection-start-line="415" selection-start-column="58" selection-end-line="415" selection-end-column="58" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/module/moviegoer/views/CineplexSelectionView.java">
+    <entry file="file://$PROJECT_DIR$/src/module/moviegoer/views/BookingConfirmationView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="19" column="106" lean-forward="false" selection-start-line="19" selection-start-column="70" selection-end-line="19" selection-end-column="106" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/module/moviegoer/views/MovieGoerMainView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="241">
-          <caret line="17" column="45" lean-forward="true" selection-start-line="17" selection-start-column="45" selection-end-line="17" selection-end-column="45" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="240">
+          <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/module/moviegoer/views/CinemaSelectionView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/module/moviegoer/MovieGoerModule.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="16" column="14" lean-forward="true" selection-start-line="16" selection-start-column="14" selection-end-line="16" selection-end-column="14" />
+        <state relative-caret-position="272">
+          <caret line="23" column="1" lean-forward="false" selection-start-line="23" selection-start-column="1" selection-end-line="23" selection-end-column="1" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/module/moviegoer/views/MovieSelectionView.java">
+    <entry file="file://$PROJECT_DIR$/src/module/moviegoer/views/MovieGoerMainView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
-          <caret line="25" column="27" lean-forward="true" selection-start-line="25" selection-start-column="27" selection-end-line="25" selection-end-column="27" />
+        <state relative-caret-position="192">
+          <caret line="26" column="65" lean-forward="false" selection-start-line="26" selection-start-column="65" selection-end-line="26" selection-end-column="65" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/obj/TicketPrice.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1085">
+          <caret line="93" column="0" lean-forward="false" selection-start-line="93" selection-start-column="0" selection-end-line="93" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/obj/Booking.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="499">
+          <caret line="125" column="81" lean-forward="false" selection-start-line="125" selection-start-column="81" selection-end-line="125" selection-end-column="81" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#2720#2721#0" expanded="true" />
+            <element signature="e#2753#2754#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/obj/Review.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="355">
+          <caret line="60" column="13" lean-forward="true" selection-start-line="60" selection-start-column="13" selection-end-line="60" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/module/admin/AdminModule.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="19" column="28" lean-forward="true" selection-start-line="19" selection-start-column="28" selection-end-line="19" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/module/admin/views/EditTicketPrice.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="30" column="0" lean-forward="true" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/module/admin/views/DisplayTicketPrice.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="64">
+          <caret line="10" column="33" lean-forward="false" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/module/admin/views/Top5ListView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="64">
+          <caret line="9" column="27" lean-forward="true" selection-start-line="9" selection-start-column="27" selection-end-line="9" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/module/admin/views/AdminMainView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="307">
+          <caret line="57" column="39" lean-forward="true" selection-start-line="57" selection-start-column="39" selection-end-line="57" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/module/admin/views/SystemConfigView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="416">
+          <caret line="39" column="42" lean-forward="false" selection-start-line="39" selection-start-column="42" selection-end-line="39" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/obj/CinemaDate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="87">
+          <caret line="71" column="20" lean-forward="false" selection-start-line="71" selection-start-column="20" selection-end-line="71" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/module/admin/controllers/StaffMgr.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="376" column="60" lean-forward="false" selection-start-line="376" selection-start-column="60" selection-end-line="376" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="60" column="0" lean-forward="false" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
+          <folding>
+            <element signature="method#readMovie#0;class#Main#0" expanded="false" />
+            <element signature="method#readCinema#0;class#Main#0" expanded="false" />
+            <element signature="method#readCineplex#0;class#Main#0" expanded="false" />
+            <element signature="method#readMovieInCinema#0;class#Main#0" expanded="false" />
+            <element signature="method#readMovieOnScenes#0;class#Main#0" expanded="false" />
+            <element signature="method#updateUser#0;class#Main#0" expanded="false" />
+            <element signature="method#updateMovie#0;class#Main#0" expanded="false" />
+            <element signature="method#updateCinema#0;class#Main#0" expanded="false" />
+            <element signature="method#updateReview#0;class#Main#0" expanded="false" />
+            <element signature="method#updateMovieInCinema#0;class#Main#0" expanded="false" />
+            <element signature="method#updateMovieOnScenes#0;class#Main#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/res/SysCon.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="64">
+          <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
         </state>
       </provider>
     </entry>

@@ -1,40 +1,27 @@
 package module.moviegoer.views;
 
-import app.Main;
 import module.moviegoer.controllers.MovieGoerMgr;
 import obj.Cinema;
+import obj.MovieInCinema;
+import obj.MovieOnScene;
 
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 public class MovieSelectionView
 {
     private static MovieGoerMgr movieGoerMgr = MovieGoerMgr.getMovieGoerMgr();
-    static Scanner scanner = Main.getSystemScanner();
-    static Cinema  cinema = movieGoerMgr.getSelectedCinema();
-
-    public static void run()//The boolean tells us whether or not we should list out all the movies
+    private static Cinema  cinema = movieGoerMgr.getSelectedCinema();
+    private static BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+    public static void run() throws IOException//The boolean tells us whether or not we should list out all the movies
     {
-        while(true){
-            System.out.println("Movie----------------------");
-            String oneline="";
-            for(int i=0; i<cinema.getMoviesList().size();i++){
-                oneline += (cinema.getMoviesList().get(i).getMovieName()+"\t");
-                for(int j=0; j<cinema.getMoviesList().get(i).getMovieShowTime().size();j++){
-                    oneline+=("|"+i+"."+j+cinema.getMoviesList().get(i).getMovieShowTime().get(j)+"|\t");
-                }
-                System.out.println(oneline);
-                oneline="";
-            }
-            System.out.println("Please select the movie and show time you want to see :-) OR Input 'H' return to previous page");
-            String[] selection = scanner.nextLine().split(".");
-            if (selection.length==2) {
-
-            } else if (selection.equals("H") || selection.equals("h")) {
-                return;
-            } else {
-                System.out.println("ERROR: Wrong input!\n");
-            }
-
+        System.out.println("Movie---------------------");
+        MovieInCinema tempMovieInCinema = movieGoerMgr.selectMovieInCinema();
+        if (tempMovieInCinema != null) {
+            MovieTimeSelectionView.run();
+        } else {
+            return;
         }
     }
 }

@@ -12,18 +12,30 @@ Geostorm;MovieType_3;Now Showing;After an unprecedented series of natural disast
 Sky Hunter;MovieType_2;Preview;Wu Di (Li Chen), Ya Li (Fan Bing Bing), Ling Weifeng (Wang Qian Yuan), Hao Chen (Li Jia Hang), are air force pilots. During the parade, they receive a sudden test to be selected to train in the air force secret base called Sky Hunter. Wu Di and Ling Weifeng passed the test, whereas Hao Chen was eliminated. Through a series of training, Wu Di and four other soldiers made it to the Sky Hunter secret base. However, news broke that Hao Chen has been captured by the rebel army of B country. Wu Di leads several recruits and receives a video of Hao Chen from B Country. Ling Weifeng promised Wu Di to attack B Country and rescue Hao Chen. An air war was imminently brewing...;Li Chen;Li Chen as Wu Di;Fan Bing Bing as Ya Li
 </MOVIE>
 <CINEMA>
-Jem;Platinum;JEM;Flatliners;Geostorm
-Amk;Standard;AMK;Flatliners;Geostorm
-The Cathay;Platinum;CAT;Geostorm;Sky Hunter
+Jem;Platinum;JEM;20,24
+Amk;Standard;AMK;18,20
+The Cathay;Platinum;CAT;20,24
 </CINEMA>
 <CINEPLEX>
 Cathay Cineplexes;22 Martin Road #03-01 Singapore 239058;Jem;Amk;The Cathay
 </CINEPLEX>
+<MOVIETIME>
+JEM;Flatliners;201710201200;201710201400
+JEM;Geostorm;201710201800;201710211800
+AMK;Sky Hunter;201710251230;201710261230
+AMK;Flatliners;201710201800;201710211800
+CAT;Sky Hunter;201710211400;201710211200
+CAT;Geostorm;201710221800;201710241800
+</MOVIETIME>
+<MOVIEONSCENE>
+Flatliners;JEM;Cathay Cineplexes;201710201200
+</MOVIEONSCENE>
 <REVIEW>
 4.5;Ann;Flatliners;Nice movie
 3.0;Bob;Geostorm;Good
 4.0;goerUser;Geostorm;Amazing
 </REVIEW>
 <BOOKING>
-JEM201710201200;Geostorm;Jem;Cathay Cineplexes;goerUser;201710201200;35.0;1,0,0
+JEM201710201200;Flatliners;Jem;Cathay Cineplexes;201710201200;goerUser;201710151339;35.0;1,0,0;6,3
 </BOOKING>
+

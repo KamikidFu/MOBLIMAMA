@@ -1,0 +1,3 @@
+JEM201710201200;﻿Flatliners;Jem;Cathay Cineplexes;201710201200;goerUser;201710151339;35.0;1,0,0;6,3
+CAT201711092205;Geostorm;The Cathay;Cathay Cineplexes;201710221800;goerUser;201711092205;0.0;1,0,0;1,3
+AMK201711092209;Sky Hunter;Amk;Cathay Cineplexes;201710261230;goerUser;201711092209;0.0;1,0,0;1,3

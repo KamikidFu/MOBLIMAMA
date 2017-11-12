@@ -1,0 +1,12 @@
+4.5;Ann;Flatliners;Nice movie
+3.0;Bob;Geostorm;Good
+4.0;goerUser;Geostorm;Amazing
+1.0;Ann;Sky Hunter;Terrible
+2.5;Bob;Flatliners;Rubbish
+5.0;Sea;No Game No Life: Zero;AWESOME
+4.5;Sea;It;Scary
+1.0;salty_mh;My Little Pony;so gay
+5.0;Sea;My Little Pony;LOVE THEM PONIES
+5.0;salty_mh;No Game No Life: Zero;Enjoyed myself ^^
+4.0;Ann;It;Thrilling experience
+5.0;Bob;No Game No Life: Zero;Schwi is the best!

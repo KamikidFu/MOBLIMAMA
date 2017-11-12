@@ -6,48 +6,44 @@ public class Cinema {
     private String cinemaName;
     private String cinemaClass;
     private String cinemaCode;
-    private ArrayList<Movie> moviesList;
+    private ArrayList<MovieInCinema> moviesList;
+    private int[][] seatMap;
+
 
     public Cinema() {
         cinemaName="";
         cinemaClass="";
         cinemaCode="";
         moviesList = new ArrayList<>();
+        seatMap = new int[1][1];
     }
 
-    public Cinema(String cinemaName, String cinemaClass, String cinemaCode) {
+    public Cinema(String cinemaName, String cinemaClass, String cinemaCode, int seatMapLength, int searMapWidth) {
         this.cinemaName = cinemaName;
         this.cinemaClass = cinemaClass;
         this.cinemaCode = cinemaCode;
+        moviesList=new ArrayList<>();
+        seatMap = new int[seatMapLength][searMapWidth];
     }
 
-    public Cinema(String cinemaName, String cinemaClass, String cinemaCode, ArrayList<Movie> moviesList) {
+    public Cinema(String cinemaName, String cinemaClass, String cinemaCode, ArrayList<MovieInCinema> moviesList, int seatMapLength, int searMapWidth) {
         this.cinemaName = cinemaName;
         this.cinemaClass = cinemaClass;
         this.cinemaCode = cinemaCode;
         this.moviesList = moviesList;
+        moviesList=new ArrayList<>();
+        seatMap = new int[seatMapLength][searMapWidth];
     }
 
-    public void addMovie(Movie movie){
+    //Methods
+    public void addMovieInCinema(MovieInCinema movie){
         this.moviesList.add(movie);
     }
 
-    public void setCinemaName(String cinemaName) {
-        this.cinemaName = cinemaName;
-    }
 
-    public void setCinemaClass(String cinemaClass) {
-        this.cinemaClass = cinemaClass;
-    }
 
-    public void setCinemaCode(String cinemaCode) {
-        this.cinemaCode = cinemaCode;
-    }
 
-    public void setMoviesList(ArrayList<Movie> moviesList) {
-        this.moviesList = moviesList;
-    }
-
+    //Getters and setters
     public String getCinemaName() {
         return cinemaName;
     }
@@ -60,7 +56,11 @@ public class Cinema {
         return cinemaCode;
     }
 
-    public ArrayList<Movie> getMoviesList() {
+    public ArrayList<MovieInCinema> getMoviesList() {
         return moviesList;
+    }
+
+    public int[][] getSeatMap() {
+        return seatMap;
     }
 }

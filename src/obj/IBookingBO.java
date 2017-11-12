@@ -1,5 +1,7 @@
 package obj;
 
+import java.util.ArrayList;
+
 /**
  * IBookingBO class is a class for controlling Business object of Booking
  * @author Fu, Yunhao
@@ -7,11 +9,10 @@ package obj;
 public interface IBookingBO {
     //Getters
     String getBookedTransactionID();
-    String getBookedMovieName();
-    String getBookedCinemaName();
     String getBookedMovieGoerName();
     CinemaDate getBookedSellDate();
     double getBookedPrice();
     int[] getTicketinfo();
-    String getBookedCineplexName();
+    MovieOnScene getBookedMovieOnScene();
+    ArrayList<String> getBookedSeat();
 }

@@ -8,13 +8,12 @@ import module.moviegoer.MovieGoerModule;
 import module.moviegoer.controllers.MovieGoerMgr;
 import obj.*;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
+import java.util.zip.CheckedInputStream;
 
 /**
  * Main method is to run whole project
@@ -31,7 +30,9 @@ public class Main {
     private static ArrayList<Review> reviewsList = new ArrayList<>();
     private static ArrayList<Booking> bookingsList = new ArrayList<>();
     private static ArrayList<Movie> moviesList = new ArrayList<>();
+    private static ArrayList<MovieOnScene> onScenesMovieList = new ArrayList<>();
     private static ArrayList<IUser> usersList = new ArrayList<>();
+    //private static BufferedReader systemBufferedReader = new BufferedReader(new InputStreamReader(System.in));
     private static Scanner systemScanner = new Scanner(System.in);
     /**
      * Application main entry point
@@ -43,7 +44,7 @@ public class Main {
 
         //dataLoaded is a boolean flag to check if the data file successfully loaded into system
         //exitFlag is a boolean flag to determine if the user wants to exit from the system
-        boolean dataLoaded =readFile(new File("src/res/Data.txt"));
+        boolean dataLoaded =readFile();
         boolean exitFlag = false;
 
         while(dataLoaded && !exitFlag){
@@ -54,7 +55,7 @@ public class Main {
             IUser temp =(new LoginModule()).run();
 
             if(temp == null){
-                System.out.println("Error: Wrong IUser Information!\n");
+                System.out.println("Error: Wrong User Information!\n");
                 continue;
             }else if(temp instanceof MovieGoer){
                 ((MovieGoer) temp).doMovieGoerJob();
@@ -63,264 +64,26 @@ public class Main {
                 ((Staff) temp).doAdminJob();
                 exitFlag = true;
             }
-
-            if(exitFlag)
-                System.out.println("Thank you for using our system!");
         }
 
         //Close all scanner which are using System.in
+        //systemBufferedReader.close();
         systemScanner.close();
 
-        //UpdateFile()
-        //updateFile(new File("src/res/Data.txt"));
-        return;
+        if(updateFile()){
+            System.out.println("Thank you for using our system!");
+            return;
+        }else {
+            System.err.println("Failed to update data!");
+            return;
+        }
+
     }
 
-    private static boolean readFile(File file)throws IOException{
-        Scanner sc = new Scanner(file);
-        String oneLineData="";
-        String[] oneLineDataArray;
-        ArrayList<String> userNameList = new ArrayList<>();
-        ArrayList<String> passWordList = new ArrayList<>();
-        ArrayList<String> userTypeList = new ArrayList<>();
-        try {
-            while (sc.hasNext()) {
-                oneLineData = sc.nextLine();
-                if (oneLineData.contains("<USER>")) {
-                    oneLineData = sc.nextLine();
-                    oneLineDataArray = oneLineData.split(";");
-                    while (!oneLineData.contains("</USER>")) {
-                        userNameList.add(oneLineDataArray[0]);
-                        userTypeList.add(oneLineDataArray[1]);
-                        oneLineData = sc.nextLine();
-                        oneLineDataArray = oneLineData.split(";");
-                    }
-                } else if (oneLineData.contains("<PASSWORD>")) {
-                    oneLineData = sc.nextLine();
-                    while (!oneLineData.contains("</PASSWORD>")) {
-                        passWordList.add(oneLineData);
-                        oneLineData = sc.nextLine();
-                    }
-                    if (userNameList.size() != passWordList.size()) {
-                        throw new IllegalDataException(
-                                "Wrong user data retrieved from file.");
-                    }else{
-                        for(int i=0;i<userNameList.size();i++){
-                            if(userTypeList.get(i).equals("Staff"))
-                                usersList.add(new Staff(userNameList.get(i), passWordList.get(i)));
-                            else
-                                usersList.add(new MovieGoer(userNameList.get(i),passWordList.get(i)));
-                        }
-                    }
-                } else if (oneLineData.contains("<MOVIE>")) {
-                    oneLineData = sc.nextLine();
-                    while(!oneLineData.contains("</MOVIE>")){
-                        oneLineDataArray = oneLineData.split(";");
-                        if(oneLineDataArray.length >= 7) {
-                            moviesList.add(new Movie(
-                                    oneLineDataArray[0], oneLineDataArray[1],
-                                    oneLineDataArray[2], oneLineDataArray[3],
-                                    oneLineDataArray[4],
-                                    Arrays.copyOfRange(
-                                            oneLineDataArray,
-                                            5, oneLineDataArray.length)));
-                        }else{
-                            throw new IllegalDataException(
-                                    "Wrong movie data retrieved from file");
-                        }
-                        oneLineData = sc.nextLine();
-                    }
-                }else if(oneLineData.contains("<CINEMA>")){
-                    oneLineData=sc.nextLine();
-                    while(!oneLineData.contains("</CINEMA>")){
-                        oneLineDataArray = oneLineData.split(";");
-                        if(oneLineDataArray.length>=3){
-                            if(oneLineDataArray.length==3){
-                                cinemasList.add(new Cinema(
-                                        oneLineDataArray[0],oneLineDataArray[1],oneLineDataArray[2]));
-                            }else{
-                                ArrayList<Movie> tempMovieList = new ArrayList<>();
-                                for(int i=3; i<oneLineDataArray.length;i++){
-                                    for(int j=0; j<moviesList.size();j++){
-                                        Movie tempMovie = moviesList.get(j);
-                                        if(tempMovie.getMovieName().equals(oneLineDataArray[i])){
-                                            tempMovieList.add(tempMovie);
-                                            break;
-                                        }
-                                    }
-                                }
-                                cinemasList.add(new Cinema(
-                                        oneLineDataArray[0],oneLineDataArray[1],
-                                        oneLineDataArray[2],tempMovieList));
-                            }
-                        }else{
-                            throw new IllegalDataException(
-                                    "Wrong cinema data retrieved from file"
-                            );
-                        }
-                        oneLineData=sc.nextLine();
-                    }
-                }else if(oneLineData.contains("<CINEPLEX>")){
-                    oneLineData = sc.nextLine();
-                    while(!oneLineData.contains("</CINEPLEX>")){
-                        oneLineDataArray=oneLineData.split(";");
-                        if(oneLineDataArray.length>=2){
-                            if(oneLineDataArray.length==2) {
-                                cineplexesList.add(new Cineplex(
-                                        oneLineDataArray[0], oneLineDataArray[2]
-                                ));
-                            }else {
-                                ArrayList<Cinema> tempCinemaList = new ArrayList<>();
-                                for (int i = 1; i < oneLineDataArray.length; i++) {
-                                    for (int j = 0; j < cinemasList.size(); j++) {
-                                        Cinema tempCinema = cinemasList.get(j);
-                                        if (tempCinema.getCinemaName().equals(oneLineDataArray[i])) {
-                                            tempCinemaList.add(tempCinema);
-                                            break;
-                                        }
-                                    }
-                                }
-                                cineplexesList.add(new Cineplex(
-                                        oneLineDataArray[0], oneLineDataArray[1],
-                                        tempCinemaList
-                                ));
-                            }
-                        }else{
-                            throw new IllegalDataException(
-                                    "Wrong cineplex data retrieved from file"
-                            );
-                        }
-                        oneLineData=sc.nextLine();
-                    }
-                }else if(oneLineData.contains("<REVIEW")){
-                    oneLineData = sc.nextLine();
-                    while(!oneLineData.contains("</REVIEW>")){
-                        oneLineDataArray = oneLineData.split(";");
-                        if(oneLineDataArray.length==4){
-                            reviewsList.add(new Review(
-                                    Double.parseDouble(oneLineDataArray[0]),
-                                    oneLineDataArray[1],
-                                    oneLineDataArray[2],oneLineDataArray[3]));
-                        }else{
-                            throw new IllegalDataException(
-                                    "Wrong review data retrieved from file"
-                            );
-                        }
-                        oneLineData = sc.nextLine();
-                    }
-                }else if(oneLineData.contains("<BOOKING>")){
-                    oneLineData = sc.nextLine();
-                    while(!oneLineData.contains("</BOOKING>")){
-                        oneLineDataArray=oneLineData.split(";");
-                        if(oneLineDataArray.length==8){
-                            int[] ticketTemp = new int[3];
-                            for(int i=0;i<ticketTemp.length;i++){
-                                ticketTemp[i] = Integer.parseInt(oneLineDataArray[7].split(",")[i]);
-                            }
-                            bookingsList.add(new Booking(
-                               oneLineDataArray[0],
-                               oneLineDataArray[1],
-                               oneLineDataArray[2],
-                               oneLineDataArray[3],
-                               oneLineDataArray[4],
-                               new CinemaDate(
-                                       (Integer.parseInt(oneLineDataArray[5].substring(0,4))),
-                                       (Integer.parseInt(oneLineDataArray[5].substring(4,6))),
-                                       Integer.parseInt(oneLineDataArray[5].substring(6,8)),
-                                       Integer.parseInt(oneLineDataArray[5].substring(8,10)),
-                                       Integer.parseInt(oneLineDataArray[5].substring(10,12))),
-                               Double.parseDouble(oneLineDataArray[6]),ticketTemp
-                            ));
-                        }else{
-                            throw new IllegalDataException(
-                                    "Wrong booking data retrieved from file"
-                            );
-                        }
-                        oneLineData = sc.nextLine();
-                    }
-                }else{
-                    throw new IllegalDataException(
-                            "Wrong data retrieved from file"
-                    );
-                }
-            }
-        }catch (IllegalDataException e){
-            System.err.print(e);
-            return false;
-        }catch (Exception e){
-            System.err.println(e);
-            return false;
-        }
-        return true;
-    }
 
-    private static void updateFile(File file) throws IOException{
-        FileWriter fileWriter = new FileWriter(file,false);
 
-        fileWriter.write("<USER>"+System.lineSeparator());
-        for(IUser u:usersList){
-            fileWriter.write(u.getUserName()+(u instanceof Staff?";Staff":";MovieGoer")+System.lineSeparator());
-        }
-        fileWriter.write("</USER>"+System.lineSeparator());
-
-        fileWriter.write("<PASSWORD>"+System.lineSeparator());
-        for(IUser u:usersList){
-            fileWriter.write(u.getPassword()+System.lineSeparator());
-        }
-        fileWriter.write("</PASSWORD>"+System.lineSeparator());
-
-        fileWriter.write("<MOVIE>"+System.lineSeparator());
-        for(Movie m:moviesList){
-            String[] cast = m.getMovieCast();
-            String castString="";
-            for(int i=0;i<cast.length;i++){
-                castString+=";";
-                castString+=cast[i];
-            }
-            fileWriter.write(m.getMovieName()+";"+m.getMovieType()+";"+m.getMovieStatus()+
-                            ";"+m.getMovieSynopsis()+";"+m.getMovieDirector()+castString+System.lineSeparator());
-        }
-        fileWriter.write("</MOVIE>"+System.lineSeparator());
-
-        fileWriter.write("<CINEMA>"+System.lineSeparator());
-        for(Cinema c:cinemasList){
-            ArrayList<Movie> movie = c.getMoviesList();
-            String movieString="";
-            for(Movie m:movie){
-                movieString+=";";
-                movieString+=m.getMovieName();
-            }
-            fileWriter.write(c.getCinemaName()+";"+c.getCinemaClass()+";"+c.getCinemaCode()+movieString+System.lineSeparator());
-        }
-        fileWriter.write("</CINEMA>"+System.lineSeparator());
-
-        fileWriter.write("<CINEPLEX>"+System.lineSeparator());
-        for(Cineplex c:cineplexesList){
-            ArrayList<Cinema> cinemas = c.getCinemaList();
-            String cinemaString="";
-            for(Cinema ci:cinemas){
-                cinemaString+=";";
-                cinemaString+=ci.getCinemaName();
-            }
-            fileWriter.write(c.getCineplexName()+";"+c.getCineplexLocation()+cinemaString+System.lineSeparator());
-        }
-        fileWriter.write("</CINEPLEX>"+System.lineSeparator());
-
-        fileWriter.write("<REVIEW>"+System.lineSeparator());
-        for (Review r:reviewsList){
-            fileWriter.write(r.getRate()+";"+r.getMovieGoerName()+";"+r.getMovieName()+";"+r.getComment()+System.lineSeparator());
-        }
-        fileWriter.write("</REVIEW>"+System.lineSeparator());
-
-        fileWriter.write("<BOOKING>"+System.lineSeparator());
-        for(Booking b:bookingsList){
-
-            fileWriter.write(b.getBookedTransactionID()+";"+b.getBookedMovieName()+";"+b.getBookedCinemaName()+
-                            ";"+b.getBookedMovieGoerName()+";"+b.getBookedSellDate().getSellDate()+";"+b.getBookedPrice()+System.lineSeparator());
-        }
-        fileWriter.write("</BOOKING>");
-
-        fileWriter.close();
+    public static ArrayList<MovieOnScene> getOnScenesMovieList() {
+        return onScenesMovieList;
     }
 
     public static ArrayList<Cinema> getCinemasList() {
@@ -347,7 +110,501 @@ public class Main {
         return usersList;
     }
 
+    /*public static BufferedReader getSystemBufferedReader() {
+        return systemBufferedReader;
+    }*/
+
     public static Scanner getSystemScanner() {
         return systemScanner;
     }
+
+    public static boolean tryParseInteger(String string){
+        try{
+            Integer.parseInt(string);
+            return true;
+        }catch (Exception e){
+            return false;
+        }
+    }
+
+    public static int scannerIntegerInput(){
+        int temp=0;
+        String test="";
+        test = systemScanner.nextLine();
+        while (!Main.tryParseInteger(test)) {
+            System.out.println("Wrong input please check!");
+            test = systemScanner.nextLine();
+        }
+        return Integer.parseInt(test);
+    }
+
+    private static Movie findMovie(String name){
+        for(Movie m:moviesList){
+            if(m.getMovieName().contains(name)){
+                return m;
+            }
+        }
+        return null;
+    }
+
+    private static Cinema findCinemaByCode(String name){
+        for(Cinema c:cinemasList){
+            if(c.getCinemaCode().contains(name)){
+                return c;
+            }
+        }
+        return null;
+    }
+
+    private static Cineplex findCineplex(String name){
+        for(Cineplex c: cineplexesList){
+            if(c.getCineplexName().contains(name)){
+                return c;
+            }
+        }
+        return null;
+    }
+
+    private static MovieOnScene findMovieOnScene(Movie movie, Cinema cinema, Cineplex cineplex, CinemaDate cinemaDate){
+        for(MovieOnScene m: onScenesMovieList){
+            if(m.getOnSceneMovie().equals(movie) && m.getOnSceneCinema().equals(cinema) &&
+                    m.getOnSceneCineplex().equals(cineplex) && m.getOnSceneShowTime().isSameTime(cinemaDate))
+                return m;
+        }
+        return null;
+    }
+
+    private static Cinema findCinemaByName(String s) {
+        for(Cinema c:cinemasList){
+            if(c.getCinemaName().contains(s)){
+                return c;
+            }
+        }
+        return null;
+    }
+    private static boolean readFile(){
+        try {
+            readUser();
+            readMovie();
+            readCinema();
+            readCineplex();
+            readMovieInCinema();
+            readMovieOnScenes();
+            readReview();
+            readBooking();
+            readSysConfigure();
+            return true;
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    private static void readSysConfigure() {
+        try {
+            Scanner localScanner = new Scanner(new File("src/res/SysCon.txt"));
+            TicketPrice.setBasePrice(Double.parseDouble(localScanner.nextLine()));
+            while(localScanner.hasNext()){
+                CinemaDate.addHoliday(localScanner.nextLine());
+            }
+            localScanner.close();
+        }catch (Exception e){
+            System.err.println(e);
+            e.printStackTrace();
+        }
+    }
+
+    private static void readUser(){
+        try{
+            String[] onelinetemp;
+            Scanner localScanner = new Scanner(new File("src/res/Users.txt"));
+            while(localScanner.hasNext()){
+                onelinetemp = localScanner.nextLine().split(";");
+                if(onelinetemp.length==3){
+                    if(onelinetemp[2].equals("Staff")){
+                        usersList.add(new Staff(onelinetemp[0],onelinetemp[1]));
+                    }else if(onelinetemp[2].equals("MovieGoer")){
+                        usersList.add(new MovieGoer(onelinetemp[0],onelinetemp[1]));
+                    }
+                }else {
+                    throw new IllegalDataException(
+                            "Wrong user data retrieved from file"
+                    );
+                }
+            }
+            localScanner.close();
+        }catch (Exception e){
+            System.err.println(e);
+            e.printStackTrace();
+        }
+    }
+
+    private static void readMovie(){
+        try{
+            String[] onelinetemp;
+            Scanner localScanner = new Scanner(new File("src/res/Movies.txt"));
+            while (localScanner.hasNext()) {
+                onelinetemp = localScanner.nextLine().split(";");
+                if (onelinetemp.length >= 5) {
+                    ArrayList<String> temp = new ArrayList<>();
+                    for(int i=5; i<onelinetemp.length;i++){
+                        temp.add(onelinetemp[i]);
+                    }
+                    moviesList.add(new Movie(
+                            onelinetemp[0], onelinetemp[1],
+                            onelinetemp[2], onelinetemp[3],
+                            onelinetemp[4],temp));
+                }else {
+                    throw new IllegalDataException(
+                            "Wrong movie data retrieved from file"
+                    );
+                }
+            }
+            localScanner.close();
+        }catch (Exception e){
+            System.err.println(e);
+            e.printStackTrace();
+        }
+    }
+
+    private static void readCinema(){
+        try{
+            String[] onelinetemp;
+            Scanner localScanner = new Scanner(new File("src/res/Cinemas.txt"));
+            while (localScanner.hasNext()) {
+                onelinetemp = localScanner.nextLine().split(";");
+                if (onelinetemp.length >= 3) {
+                    if (onelinetemp.length == 4) {
+                        String[] temp = onelinetemp[3].split(",");
+                        cinemasList.add(new Cinema(
+                                onelinetemp[0], onelinetemp[1], onelinetemp[2],
+                                Integer.parseInt(temp[0]), Integer.parseInt(temp[1])));
+                    } else {
+                        String[] temp = onelinetemp[3].split(";");
+                        cinemasList.add(new Cinema(
+                                onelinetemp[0], onelinetemp[1],
+                                onelinetemp[2],
+                                Integer.parseInt(temp[0]), Integer.parseInt(temp[1])));
+                    }
+                } else {
+                    throw new IllegalDataException(
+                            "Wrong cinema data retrieved from file"
+                    );
+                }
+            }
+            localScanner.close();
+        }catch (Exception e){
+            System.err.println(e);
+            e.printStackTrace();
+        }
+    }
+
+    private static void readCineplex(){
+        try{
+            String[] onelinetemp;
+            Scanner localScanner = new Scanner(new File("src/res/Cineplexs.txt"));
+            while (localScanner.hasNext()) {
+                onelinetemp = localScanner.nextLine().split(";");
+                if (onelinetemp.length >= 2) {
+                    if (onelinetemp.length == 2) {
+                        cineplexesList.add(new Cineplex(
+                                onelinetemp[0], onelinetemp[2]
+                        ));
+                    } else {
+                        ArrayList<Cinema> tempCinemaList = new ArrayList<>();
+                        for (int i = 2; i < onelinetemp.length; i++) {
+                            tempCinemaList.add(findCinemaByName(onelinetemp[i]));
+                        }
+                        cineplexesList.add(new Cineplex(
+                                onelinetemp[0], onelinetemp[1],
+                                tempCinemaList
+                        ));
+                    }
+                } else {
+                    throw new IllegalDataException(
+                            "Wrong cineplex data retrieved from file"
+                    );
+                }
+            }
+            localScanner.close();
+        }catch (Exception e){
+            System.err.println(e);
+            e.printStackTrace();
+        }
+    }
+
+    private static void readReview(){
+        try{
+            String[] onelinetemp;
+            Scanner localScanner = new Scanner(new File("src/res/Reviews.txt"));
+            while (localScanner.hasNextLine()) {
+                onelinetemp = localScanner.nextLine().split(";");
+                if (onelinetemp.length == 4) {
+                    reviewsList.add(new Review(
+                            Double.parseDouble(onelinetemp[0]),
+                            onelinetemp[1],
+                            onelinetemp[2], onelinetemp[3]));
+                } else {
+                    throw new IllegalDataException(
+                            "Wrong review data retrieved from file"
+                    );
+                }
+            }
+            localScanner.close();
+        }catch (Exception e){
+            System.err.println(e);
+            e.printStackTrace();
+        }
+    }
+
+    private static void readMovieInCinema(){
+        try{
+            String[] onelinetemp;
+            Scanner localScanner = new Scanner(new File("src/res/Movietimes.txt"));
+            while (localScanner.hasNext()) {
+                onelinetemp = localScanner.nextLine().split(";");
+                if (onelinetemp.length > 3) {
+                    Movie tempMovie = findMovie(onelinetemp[1]);
+                    Cinema tempCinema = findCinemaByCode(onelinetemp[0]);
+                    if (tempCinema != null && tempMovie != null) {
+                        MovieInCinema tempMovieInCinema = new MovieInCinema(tempMovie, tempCinema);
+                        for (int i = 2; i < onelinetemp.length; i++) {
+                            tempMovieInCinema.addShowTime(CinemaDate.parseCinemaDate(onelinetemp[i]));
+                        }
+                        tempCinema.addMovieInCinema(tempMovieInCinema);
+                    }
+                } else {
+                    throw new IllegalDataException(
+                            "Wrong cineplex data retrieved from file"
+                    );
+                }
+            }
+            localScanner.close();
+        }catch (Exception e){
+            System.err.println(e);
+            e.printStackTrace();
+        }
+    }
+
+    private static void readMovieOnScenes(){
+        try{
+            String[] onelinetemp;
+            Scanner localScanner = new Scanner(new File("src/res/MovieOnScenes.txt"));
+            while (localScanner.hasNextLine()) {
+                onelinetemp = localScanner.nextLine().split(";");
+                if (onelinetemp.length > 1) {
+                    Cinema tempCinema = findCinemaByCode(onelinetemp[1]);
+                    Movie tempMovie = findMovie(onelinetemp[0]);
+                    Cineplex tempCineplex = findCineplex(onelinetemp[2]);
+                    CinemaDate tempCinemaDate = CinemaDate.parseCinemaDate(onelinetemp[3]);
+                    onScenesMovieList.add(new MovieOnScene(tempMovie, tempCinema, tempCineplex, tempCinemaDate));
+                } else {
+                    throw new IllegalDataException(
+                            "Wrong review data retrieved from file"
+                    );
+                }
+            }
+            localScanner.close();
+        }catch (Exception e){
+            System.err.println(e);
+            e.printStackTrace();
+        }
+    }
+
+    private static void readBooking(){
+        try{
+            String[] onelinetemp;
+            Scanner localScanner = new Scanner(new File("src/res/Bookings.txt"));
+            while (localScanner.hasNextLine()) {
+                onelinetemp = localScanner.nextLine().split(";");
+                if (onelinetemp.length >= 9) {
+                    int[] tempTicketInfo = new int[3];
+                    Movie tempMovie = findMovie(onelinetemp[1]);
+                    Cinema tempCinema = findCinemaByName(onelinetemp[2]);
+                    Cineplex tempCineplex = findCineplex(onelinetemp[3]);
+                    CinemaDate tempCinemaDate = CinemaDate.parseCinemaDate(onelinetemp[4]);
+                    MovieOnScene tempMovieOnScene = findMovieOnScene(tempMovie,tempCinema,tempCineplex,tempCinemaDate);
+                    String[] tempTicketInfoData = onelinetemp[8].split(",");
+                    ArrayList<String> tempBookedSeat = new ArrayList<>();
+                    for (int i = 0; i < 3; i++)
+                        tempTicketInfo[i] = Integer.parseInt(tempTicketInfoData[i]);
+                    for (int i = 9; i < (tempTicketInfo[0] + tempTicketInfo[1] + tempTicketInfo[2] + 9); i++) {
+                        tempMovieOnScene.addBookedSeat(onelinetemp[i]);
+                        tempBookedSeat.add(onelinetemp[i]);
+                    }
+                    Booking booking = new Booking(onelinetemp[0], tempMovieOnScene, onelinetemp[5],
+                            CinemaDate.parseCinemaDate(onelinetemp[6]), Double.parseDouble(onelinetemp[7]),
+                            tempTicketInfo, tempBookedSeat);
+                    bookingsList.add(booking);
+                } else {
+                    throw new IllegalDataException(
+                            "Wrong booking data retrieved from file"
+                    );
+                }
+            }
+            localScanner.close();
+        }catch (Exception e){
+            System.err.println(e);
+            e.printStackTrace();
+        }
+    }
+
+
+    private static boolean updateFile(){
+        try{
+            updateUser();
+            updateMovie();
+            updateCinema();
+            updateCineplex();
+            updateReview();
+            updateMovieInCinema();
+            updateMovieOnScenes();
+            updateBooking();
+            updateSysConfigure();
+            return true;
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    private static void updateSysConfigure() {
+        try{
+            FileWriter fileWriter = new FileWriter(new File("src/res/SysCon.txt"), false);
+            fileWriter.write(""+TicketPrice.getBasePrice()+System.lineSeparator());
+            for(String s: CinemaDate.getHolidayList()){
+                fileWriter.write(s+System.lineSeparator());
+            }
+            fileWriter.close();
+        }catch (Exception e){
+            System.err.println(e);
+            e.printStackTrace();
+        }
+    }
+
+    private static void updateUser() {
+        try {
+            FileWriter fileWriter = new FileWriter(new File("src/res/Users.txt"), false);
+            for (IUser u : usersList) {
+                fileWriter.write(u.getUserName() +";"+ u.getPassword() +
+                        (u instanceof Staff ? ";Staff" : ";MovieGoer") +
+                        System.lineSeparator());
+            }
+            fileWriter.close();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+    private static void updateMovie(){
+        try {
+            FileWriter fileWriter = new FileWriter(new File("src/res/Movies.txt"), false);
+            for(Movie m:moviesList){
+                ArrayList<String> cast = m.getMovieCastList();
+                String castString="";
+                for(int i=0;i<cast.size();i++){
+                    castString+=";";
+                    castString+=cast.get(i);
+                }
+                fileWriter.write(m.getMovieName()+";"+m.getMovieType()+";"+m.getMovieStatus()+
+                        ";"+m.getMovieSynopsis()+";"+m.getMovieDirector()+castString+System.lineSeparator());
+            }
+            fileWriter.close();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+    private static void updateCinema(){
+        try{
+            FileWriter fileWriter = new FileWriter(new File("src/res/Cinemas.txt"), false);
+            for(Cinema c:cinemasList){
+                int[][] seatMap = c.getSeatMap();
+                fileWriter.write(c.getCinemaName()+";"+c.getCinemaClass()+";"+c.getCinemaCode()+";"+seatMap.length+","+seatMap[0].length+System.lineSeparator());
+            }
+            fileWriter.close();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+    private static void updateCineplex(){
+        try{
+            FileWriter fileWriter = new FileWriter(new File("src/res/Cineplexs.txt"), false);
+            for(Cineplex c:cineplexesList){
+                String cinema="";
+                for(Cinema ci:c.getCinemaList()){
+                    cinema += (";"+ci.getCinemaName());
+                }
+                fileWriter.write(c.getCineplexName()+";"+c.getCineplexLocation()+cinema+System.lineSeparator());
+            }
+            fileWriter.close();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+    private static void updateReview(){
+        try{
+            FileWriter fileWriter = new FileWriter(new File("src/res/Reviews.txt"), false);
+            for (Review r:reviewsList){
+                fileWriter.write(r.getRate()+";"+r.getMovieGoerName()+";"+r.getMovieName()+";"+r.getComment()+System.lineSeparator());
+            }
+            fileWriter.close();
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+
+    }
+    private static void updateMovieInCinema(){
+        try{
+            FileWriter fileWriter = new FileWriter(new File("src/res/Movietimes.txt"), false);
+            for (Cinema c:cinemasList){
+                for(MovieInCinema m:c.getMoviesList()){
+                    ArrayList<CinemaDate> temp = m.getInCinemaShowTimes();
+                    String showtime="";
+                    for(CinemaDate cd:temp)
+                        showtime+=(";"+cd.getCinemaDate());
+                    fileWriter.write(c.getCinemaCode()+";"+m.getInCinemaMovie().getMovieName()+
+                            showtime+System.lineSeparator());
+                }
+            }
+            fileWriter.close();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+    private static void updateMovieOnScenes(){
+        try{
+            FileWriter fileWriter = new FileWriter(new File("src/res/MovieOnScenes.txt"), false);
+            for(MovieOnScene m: onScenesMovieList){
+                fileWriter.write(m.getOnSceneMovie().getMovieName()+";"+m.getOnSceneCinema().getCinemaCode()+
+                        ";"+m.getOnSceneCineplex().getCineplexName()+";"+m.getOnSceneShowTime().getCinemaDate()+System.lineSeparator());
+            }
+            fileWriter.close();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+    private static void updateBooking(){
+        try{
+            FileWriter fileWriter = new FileWriter(new File("src/res/Bookings.txt"), false);
+            for(Booking b:bookingsList){
+                MovieOnScene temp = b.getBookedMovieOnScene();
+                ArrayList<String> tempSeat = b.getBookedSeat();
+                String tempSeatOutput="";
+                for(String s: tempSeat){
+                    tempSeatOutput+=(";"+s);
+                }
+                String output = b.getBookedTransactionID()+";"+temp.getOnSceneMovie().getMovieName()+";"+temp.getOnSceneCinema().getCinemaName()+
+                        ";"+temp.getOnSceneCineplex().getCineplexName()+";"+temp.getOnSceneShowTime().getCinemaDate()+";"+
+                        b.getBookedMovieGoerName()+";"+b.getBookedSellDate().getCinemaDate()+";"+b.getBookedPrice()+";"+
+                        b.getTicketinfo()[0]+","+b.getTicketinfo()[1]+","+b.getTicketinfo()[2]+tempSeatOutput+System.lineSeparator();
+                fileWriter.write(output);
+            }
+            fileWriter.close();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+
+
 }

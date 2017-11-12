@@ -1,0 +1,4 @@
+﻿Flatliners;JEM;Cathay Cineplexes;201710201200
+Geostorm;CAT;Cathay Cineplexes;201710221800
+Sky Hunter;AMK;Cathay Cineplexes;201710261230
+The Croods 2;LSH;Shaw Theatres;201712221600

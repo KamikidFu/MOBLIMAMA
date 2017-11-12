@@ -3,6 +3,8 @@ package module.admin.views;
 
 import app.Main;
 import module.admin.AdminModule;
+import module.admin.controllers.StaffMgr;
+import obj.TicketPrice;
 
 import java.io.IOException;
 import java.text.ParseException;
@@ -10,7 +12,8 @@ import java.util.Scanner;
 
 public class SystemConfigView {
     private static Scanner scanner = Main.getSystemScanner();
-    public static void SystemConfigMain() throws IOException, ParseException {
+    private static StaffMgr staffMgr = StaffMgr.getStaffMgr();
+    public static void run() throws IOException, ParseException {
         int choice;
         do {
             System.out.println("-------------------------------------");
@@ -21,26 +24,23 @@ public class SystemConfigView {
             System.out.println("(3) Home");
 
             System.out.println("\nPlease select your option: ");
-            choice = scanner.nextInt();
+            choice = Main.scannerIntegerInput();
 
             while (choice > 3 || choice <= 0) {
                 System.out.println("You have entered an invalid number");
                 System.out.println("Please re-enter your choice: ");
-                choice = scanner.nextInt();
+                choice = Main.scannerIntegerInput();
             }
 
             switch (choice) {
                 case 1:
-                    //Price.displayPrice(); create price object
-                    //displayPrice method prints out pricing table
+                    EditTicketPrice.run();
                     break;
-
                 case 2:
-                    //Holidays.setHolidays(); create holiday object
+                    staffMgr.setHoliday();
                     break;
                 case 3:
-                    //AdminModule.runAdminHome();
-                    break;
+                    return;
             }
         } while (choice < 3);
     } //end of SystemConfigView

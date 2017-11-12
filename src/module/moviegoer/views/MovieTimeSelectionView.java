@@ -1,20 +1,25 @@
 package module.moviegoer.views;
 
+import module.moviegoer.controllers.MovieGoerMgr;
+import obj.MovieOnScene;
+
+import java.io.IOException;
 import java.util.Scanner;
 
 public class MovieTimeSelectionView
 {
-    static Scanner s3 = new Scanner(System.in);
-
-    public void runView6()
+    private static MovieGoerMgr movieGoerMgr = MovieGoerMgr.getMovieGoerMgr();
+    public static  void run() throws IOException
     {
-        int showtime;
+            //Lists Showtimes
+            System.out.println("Select a timing: \n");
 
-        //Lists Showtimes
-        System.out.println("Select a timing: \n");
+            MovieOnScene tempMovieOnScene = movieGoerMgr.selectMovieOnScene();
+            if (tempMovieOnScene != null) {
+                TicketingView.run();
+            } else {
+                return;
+            }
 
-        showtime = s3.nextInt();
-        //Record the showtime info
-        SeatSelectionView.runView7();
     }
 }

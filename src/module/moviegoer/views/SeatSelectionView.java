@@ -1,36 +1,38 @@
 package module.moviegoer.views;
 
 
+import app.Main;
+import module.moviegoer.controllers.MovieGoerMgr;
+
+import java.io.BufferedReader;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class SeatSelectionView
 {
-    static Scanner s4 = new Scanner(System.in);
+    private static MovieGoerMgr movieGoerMgr = MovieGoerMgr.getMovieGoerMgr();
+    //private static BufferedReader bufferedReader = Main.getSystemBufferedReader();
+    private static Scanner scanner = Main.getSystemScanner();
+
     //Store temp seating arrangement data here in case Moviegoer wishes to redo the selection form
 
-    static int[] ticketinfo = new int[3];
-
-    public static void runView7()
+    static int[] ticketinfo = movieGoerMgr.getTicketing();
+    public static void run() throws IOException
     {
-        int row, column, tixnumber;
-        //ticketinfo = MovieSelectionView.getTicketsType();
-        tixnumber = ticketinfo[0] + ticketinfo[1] + ticketinfo[2];
+        String selection="";
+        int tixNumber;
+        tixNumber = ticketinfo[0]+ticketinfo[1]+ticketinfo[2];
 
-        //Show Available Seats
-
-        while(tixnumber>0)
-        {
-            System.out.println("Select a Row");
-            row = s4.nextInt();
-            System.out.println("Select a Column");
-            column = s4.nextInt();
-
-            //if(Seat Already Occupied){Prompt IUser & Get Him to Rechoose Options; continue;}
-            //else{Record the information; tixnumber--;}
+        movieGoerMgr.getSelectedMovieOnScene().printSeat();
+        for(int i=1;i<=tixNumber;i++){
+            System.out.println("Please input your No."+i+" seat selection: (in format x,y where x is row number and y is column number)");
+                selection = scanner.nextLine();
+                if (!movieGoerMgr.bookSeat(selection)) {
+                    System.out.println("Wrong information input! Please select again!");
+                    i--;
+                }
 
         }
-
-        BookingConfirmationView.runView8(true);
-
+        BookingConfirmationView.run();
     }
 }

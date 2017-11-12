@@ -2,6 +2,8 @@ package obj;
 
 import module.moviegoer.MovieGoerModule;
 
+import java.io.IOException;
+
 public class MovieGoer implements IMovieGoer {
     private String username;
     private String password;
@@ -10,12 +12,16 @@ public class MovieGoer implements IMovieGoer {
     public MovieGoer(String Username, String Password){
         this.username=Username;
         this.password=Password;
-        movieGoerModule = new MovieGoerModule(this);
     }
 
     @Override
     public void doMovieGoerJob() {
-        movieGoerModule.run();
+        try {
+            movieGoerModule = new MovieGoerModule(this);
+            movieGoerModule.run();
+        }catch (Exception e){
+
+        }
     }
 
     @Override
