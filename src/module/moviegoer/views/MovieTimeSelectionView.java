@@ -5,10 +5,18 @@ import obj.MovieOnScene;
 
 import java.io.IOException;
 import java.util.Scanner;
-
+/**
+ * Boundary class of movie time selection
+ * @author Fu, Yunhao
+ */
 public class MovieTimeSelectionView
 {
     private static MovieGoerMgr movieGoerMgr = MovieGoerMgr.getMovieGoerMgr();
+
+    /**
+     * Run method
+     * @throws IOException
+     */
     public static  void run() throws IOException
     {
             //Lists Showtimes

@@ -8,6 +8,9 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
+/**
+ *  CinemaDate entity class support the system containing own special time data type
+ */
 public class CinemaDate extends Date{
     private int year;
     private int month;
@@ -16,10 +19,21 @@ public class CinemaDate extends Date{
     private int min;
     private static ArrayList<String> holidayList = new ArrayList<>();
 
+    /**
+     * Default constructor
+     */
     public CinemaDate() {
         super();
     }
 
+    /**
+     *  Full constructor
+     * @param year Year
+     * @param month Month
+     * @param date Date
+     * @param hrs Hour
+     * @param min Min
+     */
     public CinemaDate(int year, int month, int date, int hrs, int min) {
         super(year-1900,month-1,date,hrs,min);
         this.year = year;
@@ -29,18 +43,20 @@ public class CinemaDate extends Date{
         this.min = min;
     }
 
-    /*public  String convertDateToDay(){
-        SimpleDateFormat date2DayFormat = new SimpleDateFormat( "E" );
-        return date2DayFormat.format( this);
-    }*/
+    /**
+     * Convert date to day, ie, 1st to Monday
+     * @return  The day in week
+     */
+    public  String convertDateToDay() {
+        SimpleDateFormat date2DayFormat = new SimpleDateFormat("E");
+        return date2DayFormat.format(this);
+    }
 
- /*   public boolean isSameDate(String date){
-        if(this.year == Integer.parseInt(date.substring(0,3)) && this.month == Integer.parseInt(date.substring(4,5)) && this.date == Integer.parseInt(date.substring(6,7))){
-            return true;
-        }
-        return false;
-    }*/
-
+    /**
+     * Check if two cinema date objects are same
+     * @param cinemaDate Out-side cinema date to check
+     * @return Boolean value whether if they are the same
+     */
     public boolean isSameTime(CinemaDate cinemaDate){
         if(this.year==cinemaDate.year && this.month == cinemaDate.month &&
                 this.date==cinemaDate.date && this.hrs == cinemaDate.hrs &&
@@ -49,13 +65,26 @@ public class CinemaDate extends Date{
         return false;
     }
 
-
+    /**
+     *  Check if the date is a pre-set holiday
+     * @param cinemaDate Cinemedate ti check
+     * @return Boolean value whether if it is holiday
+     */
     public static boolean isHoliday(CinemaDate cinemaDate) {
-        return  holidayList.contains(cinemaDate.getCinemaDate());
+        return  holidayList.contains(cinemaDate.getCinemaDateWithoutDayTime());
     }
+
+    /**
+     *  Add holiday is going to set new holiday
+     * @param cinemaDate The string value of YYYYMMDD
+     */
     public static void addHoliday(String cinemaDate){holidayList.add(cinemaDate);}
 
-
+    /**
+     *  Parse a string value of YYYYMMDDhhmm to cinema date object
+     * @param string String to parse
+     * @return CinemaDate object
+     */
     public static CinemaDate parseCinemaDate(String string){
         if(string.toCharArray().length==12 && isAllDigit(string)) {
             return new CinemaDate(
@@ -72,6 +101,29 @@ public class CinemaDate extends Date{
         return null;
     }
 
+    /**
+     * Return the YYYYMMDD format of date
+     * @return YYYYMMDD format
+     */
+    private String getCinemaDateWithoutDayTime(){
+        String Month="";
+        if((month)<10)
+            Month+=("0"+month);
+        else
+            Month = month+"";
+        String Date="";
+        if(date<10)
+            Date += ("0"+date);
+        else
+            Date=date+"";
+
+        return (year)+(Month)+Date;
+    }
+
+    /**
+     *  Return the YYYYMMDDhhmm format of date
+     * @return YYYYMMDDhhmm format
+     */
     public String getCinemaDate(){
         String Month="";
         if((month)<10)
@@ -97,6 +149,11 @@ public class CinemaDate extends Date{
         return (year)+(Month)+Date+Hrs+Min;
     }
 
+    /**
+     * Check the input string is all digit
+     * @param string YYYYMMDDhhmm format string
+     * @return Boolean value whether they are all digit
+     */
     private static boolean isAllDigit(String string){
         char[] charArray = string.toCharArray();
         for(int i=0;i<charArray.length;i++){
@@ -109,6 +166,10 @@ public class CinemaDate extends Date{
         return true;
     }
 
+    /**
+     *  Return the list of holiday
+     * @return List of holiday
+     */
     public static ArrayList<String> getHolidayList() {
         return holidayList;
     }

@@ -2,11 +2,20 @@ package obj;
 
 
 import app.Main;
+import obj.interfaces.IBookingBO;
+import obj.interfaces.IBookingBiz;
+import obj.interfaces.IUser;
 
 import java.text.NumberFormat;
 import java.util.ArrayList;
 
-public class Booking implements IBookingBO, IBookingBiz{
+/**
+ *Booking entity class, implemented from IBookingBo and IBookingBiz
+ * @author Fu, Yunhao
+ * @version 1.3
+ * @since 2017-10-18
+ */
+public class Booking implements IBookingBO, IBookingBiz {
     private String bookedTransactionID;
     private MovieOnScene bookedMovieOnScene;
     private String bookedMovieGoerName;
@@ -17,6 +26,9 @@ public class Booking implements IBookingBO, IBookingBiz{
 
     private static ArrayList<Booking> bookings = Main.getBookingsList();
 
+    /**
+     * Default constructor
+     */
     public Booking() {
         bookedMovieGoerName="";
         bookedPrice=0.0d;
@@ -27,6 +39,16 @@ public class Booking implements IBookingBO, IBookingBiz{
         bookedSeat=new ArrayList<>();
     }
 
+    /**
+     * Full constructor
+     * @param bookedTransactionID The transaction ID
+     * @param bookedMovieOnScene The booked movie on scene object
+     * @param bookedMovieGoerName The movie goer name
+     * @param bookedSellDate The selling date of this booking
+     * @param bookedPrice The price of this booking
+     * @param ticketinfo The ticket information, containing the amount of different types of ticket
+     * @param bookedSeat The booked seat for movie
+     */
     public Booking(String bookedTransactionID, MovieOnScene bookedMovieOnScene,
                    String bookedMovieGoerName, CinemaDate bookedSellDate,
                    double bookedPrice, int[] ticketinfo,ArrayList<String> bookedSeat) {
@@ -39,6 +61,11 @@ public class Booking implements IBookingBO, IBookingBiz{
         this.bookedSeat=bookedSeat;
     }
 
+    /**
+     * Override from IBookingBiz
+     * viewBooking is to print all the information about this booking
+     * @param user The IUser, most of time is the moviegoer user.
+     */
     @Override
     public void viewBooking(IUser user){
         System.out.println("Hello "+user.getUserName()+"! The following is your booking details:");
@@ -57,76 +84,75 @@ public class Booking implements IBookingBO, IBookingBiz{
             }
     }
 
+    /**
+     * Override from IBookingBo
+     * return the transaction ID
+     * @return Transaction Id
+     */
     @Override
     public String getBookedTransactionID() {
         return bookedTransactionID;
     }
 
-
+    /**
+     * Override from IBookingBo
+     * return the movie goer name
+     * @return Movie goer name
+     */
     @Override
     public String getBookedMovieGoerName() {
         return bookedMovieGoerName;
     }
 
+    /**
+     * Override from IBookingBo
+     * return the sell date
+     * @return Sell date
+     */
     @Override
     public CinemaDate getBookedSellDate() {
         return bookedSellDate;
     }
 
+    /**
+     * Override from IBookingBo
+     * return the price of booking
+     * @return Price
+     */
     @Override
     public double getBookedPrice() {
         return bookedPrice;
     }
 
+    /**
+     * Override from IBookingBo
+     * return the ticket information
+     * @return Ticket information
+     */
     @Override
     public int[] getTicketinfo() {
         return ticketinfo;
     }
 
+    /**
+     * Override from IBookingBo
+     * return the movie on scene
+     * @return Movie on scene
+     */
     @Override
     public MovieOnScene getBookedMovieOnScene() {
         return bookedMovieOnScene;
     }
 
+    /**
+     * Override from IBookingBo
+     * return the seat information
+     * @return Seat information
+     */
     @Override
     public ArrayList<String> getBookedSeat() {
         return bookedSeat;
     }
 
-    public static void printTop5BySelling() {
-        ArrayList<String> distinctMovie = new ArrayList<>();
-        for(Booking b: bookings){
-            if(!distinctMovie.contains(b.bookedMovieOnScene.getOnSceneMovie().getMovieName())){
-                distinctMovie.add(b.bookedMovieOnScene.getOnSceneMovie().getMovieName());
-            }
-        }
-        int[] rank = new int[distinctMovie.size()];
-        for(int i=0;i<rank.length;i++){
-            for(Booking b:bookings) {
-                for (int j = 0; j < bookings.size(); j++) {
-                    if(b.bookedMovieOnScene.equals(bookings.get(j).bookedMovieOnScene)){
-                        rank[i]++;
-                    }
-                }
-            }
-        }
-        int temp;
-        int pointer=0, topCounter = 0;
-        String output = "";
-        for(int i=0;i<rank.length;i++) {
-            temp = rank[i];
-            topCounter++;
-            if(topCounter==6) break;
-            for (int j = 0; j < rank.length; j++) {
-                if (temp <= rank[j]) {
-                    temp = rank[j];
-                    pointer = j;
-                }
-            }
-            output+="No."+topCounter+" "+distinctMovie.get(pointer)+" Sell amount: "+rank[pointer]+"\n";
-            rank[pointer]=0;
-            pointer=0;
-        }
-        System.out.println(output);
-    }
+
 }

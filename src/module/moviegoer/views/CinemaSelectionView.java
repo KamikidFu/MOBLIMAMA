@@ -1,16 +1,21 @@
 package module.moviegoer.views;
 
-import app.Main;
 import module.moviegoer.controllers.MovieGoerMgr;
 import obj.Cinema;
-import obj.Cineplex;
 
 import java.io.IOException;
-import java.util.Scanner;
 
+/**
+ * Boundary class of cinema selection
+ * @author Fu, Yunhao
+ */
 public class CinemaSelectionView {
     private static MovieGoerMgr movieGoerMgr = MovieGoerMgr.getMovieGoerMgr();
 
+    /**
+     * Run method
+     * @throws IOException
+     */
     public static void run() throws IOException {
         System.out.println("Cinema---------------------");
         Cinema temp = movieGoerMgr.selectCinema();

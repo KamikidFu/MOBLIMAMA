@@ -1,12 +1,37 @@
 4.5;Ann;Flatliners;Nice movie
-3.0;Bob;Geostorm;Good
-4.0;goerUser;Geostorm;Amazing
 1.0;Ann;Sky Hunter;Terrible
+4.0;Ann;It;Thrilling experience
+5.0;Ann;No Game No Life: Zero;Amazing movie!
+3.0;Bob;Geostorm;Good
 2.5;Bob;Flatliners;Rubbish
+5.0;Bob;No Game No Life: Zero;Schwi is the best!
+4.0;Bob;Sky Hunters;Great
+4.0;goerUser;Geostorm;Amazing
+4.5;goerUser;No Game No Life: Zero;Satisfying
+5.0;goerUser;My Little Pony;Best friendship movie
+1.0;goerUser;Sky Hunters;A really badly-scripted movie
+4.0;salty_mh;It;Wow… scary
+1.0;salty_mh;My Little Pony;so gay…
+2.5;salty_mh;Flatliners;Worse than expected
+5.0;salty_mh;No Game No Life: Zero;Enjoyed myself ^^
 5.0;Sea;No Game No Life: Zero;AWESOME
 4.5;Sea;It;Scary
-1.0;salty_mh;My Little Pony;so gay
 5.0;Sea;My Little Pony;LOVE THEM PONIES
-5.0;salty_mh;No Game No Life: Zero;Enjoyed myself ^^
-4.0;Ann;It;Thrilling experience
-5.0;Bob;No Game No Life: Zero;Schwi is the best!
+5.0;Jon;No Game No Life: Zero;YES <3
+3.0;Jon;My Little Pony;Quite okay
+2.5;Jon;Geostorm;meh....
+4.0;Jon;It;scary movie 0.o
+4.0;Jon;Flatliners;not bad yo
+4.0;junen;No Game No Life: Zero;this is good
+5.0;junen;Geostorm;Lovely movie
+5.0;junen;Flatliners;touched my heart
+5.0;Thad;It;best thriller movie of the year :)
+3.0;Thad;Sky Hunters;Abit boring
+3.5;Thad;Geostorm;Naggy at times
+5.0;Thad;My Little Pony;Beautiful storyline and art!! T^T
+5.0;YouCun;My Little Pony;I love gay ponies
+5.0;YouCun;It;I love gay clowns
+3.5;yuankae;My Little Pony; Not bad
+3.0;yuankae;No Game No Life: Zero;The ending was bad...
+4.5;yuankae;It;Super de duper!
+1.0;yuankae;Geostorm;so excellent i want to give it a 10… out of 100

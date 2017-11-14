@@ -1,5 +1,6 @@
 package module.admin.views;
 
+import app.Main;
 import obj.Booking;
 import obj.Review;
 
@@ -7,7 +8,17 @@ import java.io.IOException;
 import java.text.ParseException;
 import java.util.Scanner;
 
+/**
+ * Boundary class of showing top 5 movies
+ * @author ANG SHU LIANG
+ * @author LEONG MEI HAN
+ */
 public class Top5ListView {
+    /**
+     * Run method, the main method for each boundary classes of UI
+     * @throws IOException
+     * @throws ParseException
+     */
     public static void run() throws IOException, ParseException {
 
         int choice;
@@ -32,11 +43,11 @@ public class Top5ListView {
             switch (choice) {
                 case 1:
                     //TicketSales.displayTop5();
-                    Review.printTop5ByRating();
+                    Main.printTop5ByRating();
                     break;
 
                 case 2:
-                    Booking.printTop5BySelling();
+                    Main.printTop5BySelling();
                     break;
                 case 3:
                     return;

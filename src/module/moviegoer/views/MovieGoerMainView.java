@@ -10,13 +10,23 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.text.ParseException;
 import java.util.Scanner;
-
+/**
+ * Boundary class of main view for movie goer
+ * @author ANG SHU LIANG
+ * @author Fu, Yunhao
+ * @author LEONG MEI HAN
+ */
 public class MovieGoerMainView
 {
     private static Scanner scanner = Main.getSystemScanner();
-    //private static BufferedReader bufferedReader = Main.getSystemBufferedReader();
     private static MovieGoerMgr movieGoerMgr = MovieGoerMgr.getMovieGoerMgr();
     private static int mainChoice=1;
+
+    /**
+     * Run method
+     * @throws IOException
+     * @throws ParseException
+     */
     public static void run() throws IOException, ParseException {
         String test="";
         while(mainChoice>0 && mainChoice<5) {

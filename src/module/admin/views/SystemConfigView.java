@@ -10,9 +10,20 @@ import java.io.IOException;
 import java.text.ParseException;
 import java.util.Scanner;
 
+/**
+ * Boundary class of configuring system
+ * @author ANG SHU LIANG
+ * @author LEONG MEI HAN
+ */
 public class SystemConfigView {
     private static Scanner scanner = Main.getSystemScanner();
     private static StaffMgr staffMgr = StaffMgr.getStaffMgr();
+
+    /**
+     * Run method, the main method for each boundary classes of UI
+     * @throws IOException
+     * @throws ParseException
+     */
     public static void run() throws IOException, ParseException {
         int choice;
         do {

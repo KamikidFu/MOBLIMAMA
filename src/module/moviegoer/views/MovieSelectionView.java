@@ -8,12 +8,19 @@ import obj.MovieOnScene;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-
+/**
+ * Boundary class of movie selection
+ * @author Fu, Yunhao
+ */
 public class MovieSelectionView
 {
     private static MovieGoerMgr movieGoerMgr = MovieGoerMgr.getMovieGoerMgr();
     private static Cinema  cinema = movieGoerMgr.getSelectedCinema();
-    private static BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+
+    /**
+     * Run method
+     * @throws IOException
+     */
     public static void run() throws IOException//The boolean tells us whether or not we should list out all the movies
     {
         System.out.println("Movie---------------------");

@@ -7,12 +7,24 @@ import java.util.Scanner;
 import app.Main;
 import module.admin.controllers.StaffMgr;
 
+/**
+ * Admin main view
+ * @author ANG SHU LIANG
+ * @author Fu, Yunhao
+ * @author LEONG MEI HAN
+ */
 public class AdminMainView {
 
 	private static Scanner scanner = Main.getSystemScanner();
 	private static StaffMgr staffMgr = StaffMgr.getStaffMgr();
 	private static int mainChoice=1;
 
+	/**
+	 * Run method, the main method for each boundary classes of UI
+	 * It will lead the user go to different functional stage
+	 * @throws IOException
+	 * @throws ParseException
+	 */
 	public static void run() throws IOException, ParseException {
 		String test="";
 

@@ -1,5 +1,10 @@
 package obj;
 
+/**
+ * 	Ticket price is calculator entity class
+ * @author ANG SHU LIANG
+ * @author LEONG MEI HAN
+ */
 public class TicketPrice {
 
 	static double basePrice = 8;
@@ -7,21 +12,20 @@ public class TicketPrice {
 	static double ageBenefit = 0; // for different age group
 	static double movieTypeExtra = 0; // for digital vs 3D
 	static double finalPrice;
-	static boolean isWeekday = false, isWeekend = false, isStudent = false, isSenior = false, isDigital = false, is3D = false;
-	static double weekdaySeniorDigital;
-	
+	public static boolean isWeekday;
+	static boolean isStudent;
+	public static boolean isSenior;
+	public static boolean isDigital;
+
 	public TicketPrice() {
 		isWeekday = true;
-		isWeekend = false;
 		isStudent = false;
 		isSenior = false;
 		isDigital = true;
-		is3D = false;
-		converter(isStudent, isSenior, isWeekday, isWeekend, isDigital, is3D);
-		theTicketPrice(dayMultiplier, ageBenefit, movieTypeExtra);
+		converter(isStudent, isSenior, isWeekday, isDigital);
+		oneTicketPrice(dayMultiplier, ageBenefit, movieTypeExtra);
 	}
 
-	
 	public static double getBasePrice() {
 		return basePrice;
 	}
@@ -30,28 +34,12 @@ public class TicketPrice {
 		TicketPrice.basePrice = basePrice;
 	}
 
-	public static double getFinalPrice() {
-		return finalPrice;
-	}
-
-	public static void setFinalPrice(double finalPrice) {
-		TicketPrice.finalPrice = finalPrice;
-	}
-
 	public static boolean isWeekday() {
 		return isWeekday;
 	}
 
 	public static void setWeekday(boolean isWeekday) {
 		TicketPrice.isWeekday = isWeekday;
-	}
-
-	public static boolean isWeekend() {
-		return isWeekend;
-	}
-
-	public static void setWeekend(boolean isWeekend) {
-		TicketPrice.isWeekend = isWeekend;
 	}
 
 	public static boolean isStudent() {
@@ -78,98 +66,89 @@ public class TicketPrice {
 		TicketPrice.isDigital = isDigital;
 	}
 
-	public static boolean isIs3D() {
-		return is3D;
+	public static double getDayMultiplier() {
+		return dayMultiplier;
 	}
 
-	public static void setIs3D(boolean is3d) {
-		is3D = is3d;
+	public static double getAgeBenefit() {
+		return ageBenefit;
 	}
 
-	public static double getPrice(){
-		return 1.0d;
+	public static double getMovieTypeExtra() {
+		return movieTypeExtra;
 	}
 
 	public static double weekdaySeniorDigital() {
-
 		isWeekday = true;
-		isWeekend = false;
 		isStudent = false;
 		isSenior = true;
 		isDigital = true;
-		is3D = false;
-		converter(isStudent, isSenior, isWeekday, isWeekend, isDigital, is3D);
-		return theTicketPrice(dayMultiplier, ageBenefit, movieTypeExtra);
+		converter(isStudent, isSenior, isWeekday, isDigital);
+		return oneTicketPrice(dayMultiplier, ageBenefit, movieTypeExtra);
 	}
-	
+
 	public static double weekdayStudentDigital() {
 		isWeekday = true;
-		isWeekend = false;
 		isStudent = true;
 		isSenior = false;
 		isDigital = true;
-		is3D = false;
-		converter(isStudent, isSenior, isWeekday, isWeekend, isDigital, is3D);
-		return theTicketPrice(dayMultiplier, ageBenefit, movieTypeExtra);
+		converter(isStudent, isSenior, isWeekday, isDigital);
+		return oneTicketPrice(dayMultiplier, ageBenefit, movieTypeExtra);
 	}
-	
+
 	public static double weekdayStudent3D() {
 		isWeekday = true;
-		isWeekend = false;
 		isStudent = true;
 		isSenior = false;
 		isDigital = false;
-		is3D = true;
-		converter(isStudent, isSenior, isWeekday, isWeekend, isDigital, is3D);
-		return theTicketPrice(dayMultiplier, ageBenefit, movieTypeExtra);
+		converter(isStudent, isSenior, isWeekday, isDigital);
+		return oneTicketPrice(dayMultiplier, ageBenefit, movieTypeExtra);
 	}
-	
+
 	public static double weekdayOthersDigital() {
 		isWeekday = true;
-		isWeekend = false;
 		isStudent = false;
 		isSenior = false;
 		isDigital = true;
-		is3D = false;
-		converter(isStudent, isSenior, isWeekday, isWeekend, isDigital, is3D);
-		return theTicketPrice(dayMultiplier, ageBenefit, movieTypeExtra);
+		converter(isStudent, isSenior, isWeekday, isDigital);
+		return oneTicketPrice(dayMultiplier, ageBenefit, movieTypeExtra);
 	}
-	
+
 	public static double weekdayOthers3D() {
 		isWeekday = true;
-		isWeekend = false;
 		isStudent = false;
 		isSenior = false;
 		isDigital = false;
-		is3D = true;
-		converter(isStudent, isSenior, isWeekday, isWeekend, isDigital, is3D);
-		return theTicketPrice(dayMultiplier, ageBenefit, movieTypeExtra);
+		converter(isStudent, isSenior, isWeekday, isDigital);
+		return oneTicketPrice(dayMultiplier, ageBenefit, movieTypeExtra);
 	}
-	
+
 	public static double weekendEveryoneDigital() {
 		isWeekday = false;
-		isWeekend = true;
 		isStudent = false;
 		isSenior = false;
 		isDigital = true;
-		is3D = false;
-		converter(isStudent, isSenior, isWeekday, isWeekend, isDigital, is3D);
-		return theTicketPrice(dayMultiplier, ageBenefit, movieTypeExtra);
+		converter(isStudent, isSenior, isWeekday, isDigital);
+		return oneTicketPrice(dayMultiplier, ageBenefit, movieTypeExtra);
 	}
-	
+
 	public static double weekendEveryone3D() {
 		isWeekday = false;
-		isWeekend = true;
 		isStudent = false;
 		isSenior = false;
 		isDigital = false;
-		is3D = true;
-		converter(isStudent, isSenior, isWeekday, isWeekend, isDigital, is3D);
-		return theTicketPrice(dayMultiplier, ageBenefit, movieTypeExtra);
+		converter(isStudent, isSenior, isWeekday, isDigital);
+		return oneTicketPrice(dayMultiplier, ageBenefit, movieTypeExtra);
 	}
-	
-	// isStudent, isSenior, isWeekday, isWeekend, isDigital, is3D
-	private static void converter(boolean isStudent, boolean isSenior, boolean isWeekday, boolean isWeekend, boolean isDigital, boolean is3D) {
+
+	// isStudent, isSenior, isWeekday, isDigital
+	public static void converter(boolean isStudent, boolean isSenior, boolean isWeekday, boolean isDigital) {
+		// this is to make sure weekend pricing supersedes everything else
+		if (isWeekday == false) {
+			System.out.println("The day is weekend");
+			isStudent = false;
+			isSenior = false;
+		}
 		// checks who
 		if (isStudent == true)
 			ageBenefit = -2;
@@ -180,17 +159,17 @@ public class TicketPrice {
 		// checks day
 		if (isWeekday == true)
 			dayMultiplier = 1;
-		else if (isWeekend == true)
+		else
 			dayMultiplier = 1.5;
 		// checks type of movie
 		if (isDigital == true)
 			movieTypeExtra = 0;
-		else if (is3D == true)
+		else
 			movieTypeExtra = 2;
 	}
 
-	
-	private static double theTicketPrice(double d, double a, double m) {
+	// this is called upon printing price table
+	public static double oneTicketPrice(double d, double a, double m) {
 		dayMultiplier = d;
 		ageBenefit = a;
 		movieTypeExtra = m;

@@ -1,30 +1,25 @@
 package app;
 
 import exception.IllegalDataException;
-import module.admin.AdminModule;
-import module.admin.controllers.StaffMgr;
 import module.login.LoginModule;
-import module.moviegoer.MovieGoerModule;
-import module.moviegoer.controllers.MovieGoerMgr;
 import obj.*;
+import obj.interfaces.IUser;
 
 import java.io.*;
 import java.text.ParseException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Scanner;
-import java.util.zip.CheckedInputStream;
 
 /**
  * Main method is to run whole project
  * @author Fu, Yunhao
  * @version 1.3
+ * @since 2017-10-18
  */
 public class Main {
     /**
      * Static array lists for each related module use
      */
-
     private static ArrayList<Cinema> cinemasList = new ArrayList<>();
     private static ArrayList<Cineplex> cineplexesList = new ArrayList<>();
     private static ArrayList<Review> reviewsList = new ArrayList<>();
@@ -32,8 +27,8 @@ public class Main {
     private static ArrayList<Movie> moviesList = new ArrayList<>();
     private static ArrayList<MovieOnScene> onScenesMovieList = new ArrayList<>();
     private static ArrayList<IUser> usersList = new ArrayList<>();
-    //private static BufferedReader systemBufferedReader = new BufferedReader(new InputStreamReader(System.in));
     private static Scanner systemScanner = new Scanner(System.in);
+
     /**
      * Application main entry point
      * @param args Pass data file into application
@@ -81,43 +76,74 @@ public class Main {
     }
 
 
-
+    /**
+     * @return A list of movie on scene
+     */
     public static ArrayList<MovieOnScene> getOnScenesMovieList() {
         return onScenesMovieList;
     }
 
+    /**
+     *
+     * @return A list of cinemas
+     */
     public static ArrayList<Cinema> getCinemasList() {
         return cinemasList;
     }
 
+    /**
+     *
+     * @return A list of cineplexes
+     */
     public static ArrayList<Cineplex> getCineplexesList() {
         return cineplexesList;
     }
 
+    /**
+     *
+     * @return A list of reviews
+     */
     public static ArrayList<Review> getReviewsList() {
         return reviewsList;
     }
 
+    /**
+     *
+     * @return A list of bookings
+     */
     public static ArrayList<Booking> getBookingsList() {
         return bookingsList;
     }
 
+    /**
+     *
+     * @return A list of movies
+     */
     public static ArrayList<Movie> getMoviesList() {
         return moviesList;
     }
 
+    /**
+     *
+     * @return A list of system users
+     */
     public static ArrayList<IUser> getUsersList() {
         return usersList;
     }
 
-    /*public static BufferedReader getSystemBufferedReader() {
-        return systemBufferedReader;
-    }*/
-
+    /**
+     *
+     * @return The mono system scanner
+     */
     public static Scanner getSystemScanner() {
         return systemScanner;
     }
 
+    /**
+     * Convenient method to try parse integer from string value
+     * @param string The string which is waiting for parse
+     * @return Tested value if it can be parsed
+     */
     public static boolean tryParseInteger(String string){
         try{
             Integer.parseInt(string);
@@ -127,6 +153,94 @@ public class Main {
         }
     }
 
+    /**
+     * Print the top 5 movies by selling record
+     */
+    public static void printTop5BySelling() {
+        ArrayList<String> distinctMovie = new ArrayList<>();
+        for(Booking b: bookingsList){
+            if(!distinctMovie.contains(b.getBookedMovieOnScene().getOnSceneMovie().getMovieName())){
+                distinctMovie.add(b.getBookedMovieOnScene().getOnSceneMovie().getMovieName());
+            }
+        }
+        int[] rank = new int[distinctMovie.size()];
+        for(int i=0;i<rank.length;i++){
+            for(Booking b:bookingsList) {
+                for (int j = 0; j < bookingsList.size(); j++) {
+                    if(b.getBookedMovieOnScene().equals(bookingsList.get(j).getBookedMovieOnScene())){
+                        rank[i]++;
+                    }
+                }
+            }
+        }
+        int temp;
+        int pointer=0, topCounter = 0;
+        String output = "";
+        for(int i=0;i<rank.length;i++) {
+            temp = rank[i];
+            topCounter++;
+            if(topCounter==6) break;
+            for (int j = 0; j < rank.length; j++) {
+                if (temp <= rank[j]) {
+                    temp = rank[j];
+                    pointer = j;
+                }
+            }
+            output+="No."+topCounter+" "+distinctMovie.get(pointer)+" Sell amount: "+rank[pointer]+"\n";
+            rank[pointer]=0;
+            pointer=0;
+        }
+        System.out.println(output);
+    }
+
+    /**
+     * Print the top 5 movies by review rating
+     */
+    public static void printTop5ByRating(){
+        ArrayList<String> distinctMovie = new ArrayList<>();
+        for(Review r:reviewsList){
+            if(!distinctMovie.contains(r.getMovieName())){
+                distinctMovie.add(r.getMovieName());
+            }
+        }
+
+        double[] rating = new double[distinctMovie.size()];
+
+        for(int i=0; i<rating.length;i++){
+            int reviewCounter = 0;
+            for(Review r: reviewsList){
+                if(r.getMovieName().equals(distinctMovie.get(i))){
+                    reviewCounter++;
+                    rating[i]+=r.getRate();
+                }
+            }
+            rating[i] = rating[i]/reviewCounter;
+        }
+
+        double temp = 0.0d;
+        int pointer=0, topCounter = 0;
+        String output = "";
+        for(int i=0;i<rating.length;i++) {
+            topCounter++;
+            if(topCounter==6) break;
+            for (int j = 0; j < rating.length; j++) {
+                if (temp <= rating[j]) {
+                    temp = rating[j];
+                    pointer = j;
+                }
+            }
+            output+="No."+topCounter+" "+distinctMovie.get(pointer)+" Average rate: "+rating[pointer]+"\n";
+            rating[pointer]=0.0d;
+            pointer=0;
+            temp=0;
+        }
+        System.out.println(output);
+    }
+
+    /**
+     * Directly parse the input to integer number for selection
+     * @return Parsed integer number from input string
+     */
     public static int scannerIntegerInput(){
         int temp=0;
         String test="";
@@ -138,6 +252,11 @@ public class Main {
         return Integer.parseInt(test);
     }
 
+    /**
+     * Find the movie by name
+     * @param name Movie name
+     * @return Movie object
+     */
     private static Movie findMovie(String name){
         for(Movie m:moviesList){
             if(m.getMovieName().contains(name)){
@@ -147,6 +266,11 @@ public class Main {
         return null;
     }
 
+    /**
+     * Find the cinema by code
+     * @param name Cinema code
+     * @return Cinema object
+     */
     private static Cinema findCinemaByCode(String name){
         for(Cinema c:cinemasList){
             if(c.getCinemaCode().contains(name)){
@@ -156,6 +280,25 @@ public class Main {
         return null;
     }
 
+    /**
+     * Find the cinema by name
+     * @param name Cinema name
+     * @return Cinema object
+     */
+    private static Cinema findCinemaByName(String name) {
+        for(Cinema c:cinemasList){
+            if(c.getCinemaName().contains(name)){
+                return c;
+            }
+        }
+        return null;
+    }
+
+    /**
+     * Find the cineplex by name
+     * @param name Cineplex name
+     * @return Cineplex object
+     */
     private static Cineplex findCineplex(String name){
         for(Cineplex c: cineplexesList){
             if(c.getCineplexName().contains(name)){
@@ -165,6 +308,14 @@ public class Main {
         return null;
     }
 
+    /**
+     * Find the movie on scene by its attributes
+     * @param movie Movie object, which movie to watch
+     * @param cinema Cinema object, which cinema to go
+     * @param cineplex Cineplex object, which cineplex to go
+     * @param cinemaDate CinemaDate object, when to watch
+     * @return MovieOnScene object
+     */
     private static MovieOnScene findMovieOnScene(Movie movie, Cinema cinema, Cineplex cineplex, CinemaDate cinemaDate){
         for(MovieOnScene m: onScenesMovieList){
             if(m.getOnSceneMovie().equals(movie) && m.getOnSceneCinema().equals(cinema) &&
@@ -174,14 +325,10 @@ public class Main {
         return null;
     }
 
-    private static Cinema findCinemaByName(String s) {
-        for(Cinema c:cinemasList){
-            if(c.getCinemaName().contains(s)){
-                return c;
-            }
-        }
-        return null;
-    }
+    /**
+     * Read file method for read all out-side data into system
+     * @return Boolean value whether correctly read file
+     */
     private static boolean readFile(){
         try {
             readUser();
@@ -201,20 +348,9 @@ public class Main {
         return false;
     }
 
-    private static void readSysConfigure() {
-        try {
-            Scanner localScanner = new Scanner(new File("src/res/SysCon.txt"));
-            TicketPrice.setBasePrice(Double.parseDouble(localScanner.nextLine()));
-            while(localScanner.hasNext()){
-                CinemaDate.addHoliday(localScanner.nextLine());
-            }
-            localScanner.close();
-        }catch (Exception e){
-            System.err.println(e);
-            e.printStackTrace();
-        }
-    }
-
+    /**
+     * Read user file
+     */
     private static void readUser(){
         try{
             String[] onelinetemp;
@@ -240,6 +376,9 @@ public class Main {
         }
     }
 
+    /**
+     * Read movie file
+     */
     private static void readMovie(){
         try{
             String[] onelinetemp;
@@ -268,6 +407,9 @@ public class Main {
         }
     }
 
+    /**
+     * Read cinema file
+     */
     private static void readCinema(){
         try{
             String[] onelinetemp;
@@ -300,6 +442,9 @@ public class Main {
         }
     }
 
+    /**
+     * Read cineplex file
+     */
     private static void readCineplex(){
         try{
             String[] onelinetemp;
@@ -334,6 +479,9 @@ public class Main {
         }
     }
 
+    /**
+     * Read review file
+     */
     private static void readReview(){
         try{
             String[] onelinetemp;
@@ -358,6 +506,9 @@ public class Main {
         }
     }
 
+    /**
+     * Read movie in cinema file
+     */
     private static void readMovieInCinema(){
         try{
             String[] onelinetemp;
@@ -387,6 +538,9 @@ public class Main {
         }
     }
 
+    /**
+     * Read movie on scene file
+     */
     private static void readMovieOnScenes(){
         try{
             String[] onelinetemp;
@@ -397,8 +551,10 @@ public class Main {
                     Cinema tempCinema = findCinemaByCode(onelinetemp[1]);
                     Movie tempMovie = findMovie(onelinetemp[0]);
                     Cineplex tempCineplex = findCineplex(onelinetemp[2]);
-                    CinemaDate tempCinemaDate = CinemaDate.parseCinemaDate(onelinetemp[3]);
-                    onScenesMovieList.add(new MovieOnScene(tempMovie, tempCinema, tempCineplex, tempCinemaDate));
+                    for(int i=3;i<onelinetemp.length;i++){
+                        CinemaDate tempCinemaDate = CinemaDate.parseCinemaDate(onelinetemp[i]);
+                        onScenesMovieList.add(new MovieOnScene(tempMovie, tempCinema, tempCineplex, tempCinemaDate));
+                    }
                 } else {
                     throw new IllegalDataException(
                             "Wrong review data retrieved from file"
@@ -412,6 +568,9 @@ public class Main {
         }
     }
 
+    /**
+     * Read booking file
+     */
     private static void readBooking(){
         try{
             String[] onelinetemp;
@@ -450,7 +609,27 @@ public class Main {
         }
     }
 
+    /**
+     * Read System configure file
+     */
+    private static void readSysConfigure() {
+        try {
+            Scanner localScanner = new Scanner(new File("src/res/SysCon.txt"));
+            TicketPrice.setBasePrice(Double.parseDouble(localScanner.nextLine()));
+            while(localScanner.hasNext()){
+                CinemaDate.addHoliday(localScanner.nextLine());
+            }
+            localScanner.close();
+        }catch (Exception e){
+            System.err.println(e);
+            e.printStackTrace();
+        }
+    }
 
+    /**
+     * Update file after terminating system
+     * @return Boolean value whether successfully update
+     */
     private static boolean updateFile(){
         try{
             updateUser();
@@ -469,20 +648,9 @@ public class Main {
         return false;
     }
 
-    private static void updateSysConfigure() {
-        try{
-            FileWriter fileWriter = new FileWriter(new File("src/res/SysCon.txt"), false);
-            fileWriter.write(""+TicketPrice.getBasePrice()+System.lineSeparator());
-            for(String s: CinemaDate.getHolidayList()){
-                fileWriter.write(s+System.lineSeparator());
-            }
-            fileWriter.close();
-        }catch (Exception e){
-            System.err.println(e);
-            e.printStackTrace();
-        }
-    }
-
+    /**
+     * Update user file
+     */
     private static void updateUser() {
         try {
             FileWriter fileWriter = new FileWriter(new File("src/res/Users.txt"), false);
@@ -496,6 +664,10 @@ public class Main {
             e.printStackTrace();
         }
     }
+
+    /**
+     * Update movie file
+     */
     private static void updateMovie(){
         try {
             FileWriter fileWriter = new FileWriter(new File("src/res/Movies.txt"), false);
@@ -514,6 +686,10 @@ public class Main {
             e.printStackTrace();
         }
     }
+
+    /**
+     * Update cinema file
+     */
     private static void updateCinema(){
         try{
             FileWriter fileWriter = new FileWriter(new File("src/res/Cinemas.txt"), false);
@@ -526,6 +702,10 @@ public class Main {
             e.printStackTrace();
         }
     }
+
+    /**
+     * Update cineplex file
+     */
     private static void updateCineplex(){
         try{
             FileWriter fileWriter = new FileWriter(new File("src/res/Cineplexs.txt"), false);
@@ -541,6 +721,10 @@ public class Main {
             e.printStackTrace();
         }
     }
+
+    /**
+     * Update review file
+     */
     private static void updateReview(){
         try{
             FileWriter fileWriter = new FileWriter(new File("src/res/Reviews.txt"), false);
@@ -553,6 +737,10 @@ public class Main {
         }
 
     }
+
+    /**
+     * Update movie in cinema file
+     */
     private static void updateMovieInCinema(){
         try{
             FileWriter fileWriter = new FileWriter(new File("src/res/Movietimes.txt"), false);
@@ -571,6 +759,10 @@ public class Main {
             e.printStackTrace();
         }
     }
+
+    /**
+     * Update movie on scenes file
+     */
     private static void updateMovieOnScenes(){
         try{
             FileWriter fileWriter = new FileWriter(new File("src/res/MovieOnScenes.txt"), false);
@@ -583,6 +775,10 @@ public class Main {
             e.printStackTrace();
         }
     }
+
+    /**
+     * Update booking file
+     */
     private static void updateBooking(){
         try{
             FileWriter fileWriter = new FileWriter(new File("src/res/Bookings.txt"), false);
@@ -605,6 +801,21 @@ public class Main {
         }
     }
 
-
+    /**
+     * Update system configure file
+     */
+    private static void updateSysConfigure() {
+        try{
+            FileWriter fileWriter = new FileWriter(new File("src/res/SysCon.txt"), false);
+            fileWriter.write(""+TicketPrice.getBasePrice()+System.lineSeparator());
+            for(String s: CinemaDate.getHolidayList()){
+                fileWriter.write(s+System.lineSeparator());
+            }
+            fileWriter.close();
+        }catch (Exception e){
+            System.err.println(e);
+            e.printStackTrace();
+        }
+    }
 
 }

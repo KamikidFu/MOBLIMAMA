@@ -1,4 +1,7 @@
-package obj;
+package obj.interfaces;
+
+import obj.CinemaDate;
+import obj.MovieOnScene;
 
 import java.util.ArrayList;
 

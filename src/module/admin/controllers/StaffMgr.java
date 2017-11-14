@@ -2,37 +2,45 @@ package module.admin.controllers;
 
 import app.Main;
 import obj.*;
+import obj.interfaces.IUser;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * StaffMgr is a logic class to process any logic methods within admin module
+ * @author ANG SHU LIANG
+ * @author Fu, Yunhao
+ * @author LEONG MEI HAN
+ */
 public class StaffMgr  {
 	private static Scanner systemScanner = Main.getSystemScanner();
-    //private static BufferedReader bufferedReader = Main.getSystemBufferedReader();
-	private static StaffMgr staffMgr;
+    private static StaffMgr staffMgr;
 	private static IUser staff;
 
 	private static Cineplex selectedCineplex;
 	private static Cinema selectedCinema;
 	private static Movie selectedMovie;
 	private static MovieInCinema selectedMovieInCinema;
-	//private static MovieOnScene selectedMovieOnScene;
 
 	private static ArrayList<Cinema> cinemasList = Main.getCinemasList();
 	private static ArrayList<Cineplex> cineplexesList = Main.getCineplexesList();
 	private static ArrayList<Review> reviewsList = Main.getReviewsList();
 	private static ArrayList<Movie> moviesList = Main.getMoviesList();
 
+	/**
+	 * Mono constructor for only generate one object
+	 */
 	private StaffMgr(){}
 	static {
 		staffMgr = new StaffMgr();
 	}
 
+	/**
+	 * Return mono StaffMgr
+	 * @return StaffMgr
+	 */
 	public static StaffMgr getStaffMgr() {
 		if(staff == null) {
 			System.err.println("Manager has no staff value");
@@ -40,9 +48,18 @@ public class StaffMgr  {
 		}
 		return staffMgr;
 	}
+
+	/**
+	 * Activate StaffMgr when there comes a user who is Staff
+	 * @param Staff User who is Staff
+	 */
 	public static void activateStaffMgr(IUser Staff) {staff = Staff;}
 
-	//Methods interfaces
+	//Methods
+	/**
+	 * To select a movie object and recorded inside mgr
+	 * @return The selected movie object
+	 */
 	public static Movie selectMovie(){
 		int selection;
 		int counter = 1;
@@ -64,14 +81,28 @@ public class StaffMgr  {
 		}
 	}
 
+	/**
+	 * To select a cineplex by the index in cineplex list
+	 * @param cineplexIndex Index in cineplex list
+	 */
 	public void selectedCineplex(int cineplexIndex){
 		StaffMgr.selectedCineplex = cineplexesList.get(cineplexIndex);
 	}
 
+	/**
+	 * To select a cinema by the index in cinema list
+	 * @param cinemaIndex Index in cinema list
+	 */
 	public void selectCinema(int cinemaIndex) {
 		StaffMgr.selectedCinema = cinemasList.get(cinemaIndex);
 	}
 
+	/**
+	 * Add a movie in to a cinema
+	 * @param movie Movie object, the one which will show in the cinema
+	 * @param cinema Cinema object, where will show the movie
+	 * @return MovieInCinema object
+	 */
 	public MovieInCinema addMovieInCinemaToCinema(Movie movie, Cinema cinema){
 		MovieInCinema temp = new MovieInCinema(movie,cinema);
 		if(cinema == this.getSelectedCinema()){
@@ -82,6 +113,11 @@ public class StaffMgr  {
 		return temp;
 	}
 
+	/**
+	 * Add a new movie
+	 * @return Movie in cinema object
+	 * @throws IOException
+	 */
 	public MovieInCinema addNewMovie() throws IOException {
 		String mName=null,mType=null,mStatus=null,mSynopsis=null,mDirector=null,temp=null;
 		int i=1;
@@ -175,7 +211,12 @@ public class StaffMgr  {
 		return newMovieInCinema;
 	} //end of newMovie method
 
-	//start of add new show time
+	/**
+	 * Add show time for movie in cinema
+	 * @param movie Movie object, which is waiting for adding show time
+	 * @return MovieInCinema object
+	 * @throws IOException
+	 */
 	public static MovieInCinema addShowTime(Movie movie) throws IOException {
 		String cineplex, cinema, inTime;
 		MovieInCinema tempMovieInCinema=null;
@@ -193,11 +234,11 @@ public class StaffMgr  {
 			cineplex = systemScanner.nextLine();
 			if(cineplex.isEmpty())
 				break;
-			while(!staffMgr.tryParseInteger(cineplex)){
+			while(!Main.tryParseInteger(cineplex)){
 				System.out.println("Wrong input please check!");
 				cineplex = systemScanner.nextLine();
 			}
-			if (staffMgr.tryParseInteger(cineplex)) {
+			if (Main.tryParseInteger(cineplex)) {
 				staffMgr.selectedCineplex(Integer.parseInt(cineplex)-1);
 			}
 			if(staffMgr.getSelectedCineplex()!=null && !cineplex.isEmpty()) {
@@ -207,11 +248,11 @@ public class StaffMgr  {
 				}
 				System.out.println("Please select one of cinema above!");
 				cinema = systemScanner.nextLine();
-				while(!staffMgr.tryParseInteger(cinema)){
+				while(!Main.tryParseInteger(cinema)){
 					System.out.println("Wrong input please check!");
 					cinema = systemScanner.nextLine();
 				}
-				if (staffMgr.tryParseInteger(cinema)) {
+				if (Main.tryParseInteger(cinema)) {
 					staffMgr.selectCinema(Integer.parseInt(cinema) - 1);
 				}
 				tempMovieInCinema = staffMgr.addMovieInCinemaToCinema(movie, staffMgr.getSelectedCinema());
@@ -221,8 +262,8 @@ public class StaffMgr  {
 					inTime = systemScanner.nextLine();
 					if (!inTime.isEmpty()) {
 						String[] temp1 = inTime.split("/");
-						if(temp1.length==5 && staffMgr.tryParseInteger(temp1[0]) && staffMgr.tryParseInteger(temp1[1]) && staffMgr.tryParseInteger(temp1[2]) &&
-								staffMgr.tryParseInteger(temp1[3]) && staffMgr.tryParseInteger(temp1[4])) {
+						if(temp1.length==5 && Main.tryParseInteger(temp1[0]) && Main.tryParseInteger(temp1[1]) && Main.tryParseInteger(temp1[2]) &&
+								Main.tryParseInteger(temp1[3]) && Main.tryParseInteger(temp1[4])) {
 							if((-1<Integer.parseInt(temp1[0]) && Integer.parseInt(temp1[0])<25) && (-1<Integer.parseInt(temp1[1]) && Integer.parseInt(temp1[1])<61) &&
 									(-1<Integer.parseInt(temp1[2]) && Integer.parseInt(temp1[2])<30) && (-1<Integer.parseInt(temp1[3]) && Integer.parseInt(temp1[3])<13)
 									&& (-1<Integer.parseInt(temp1[4]) && Integer.parseInt(temp1[4])<9999)) {
@@ -246,7 +287,10 @@ public class StaffMgr  {
 		return tempMovieInCinema;
 	}//end of add new show time
 
-
+	/**
+	 * Edit movie method
+	 * @throws IOException
+	 */
 	public void editMovie() throws IOException {
 
 		System.out.println("-------------------------------------");
@@ -324,59 +368,15 @@ public class StaffMgr  {
 		}
 	}
 
-
-	public boolean tryParseInteger(String string){
-		try{
-			Integer.parseInt(string);
-			return true;
-		}catch (Exception e){
-			return false;
-		}
-	}
-
-	//Getters
-	public static IUser getStaff() {
-		return staff;
-	}
-
-	public  ArrayList<Cinema> getCinemasList() {
-		return cinemasList;
-	}
-
-	public  ArrayList<Cineplex> getCineplexesList() {
-		return cineplexesList;
-	}
-
-	public  ArrayList<Review> getReviewsList() {
-		return reviewsList;
-	}
-
-	public  ArrayList<Movie> getMoviesList() {
-		return moviesList;
-	}
-
-	public Cineplex getSelectedCineplex() {
-		return selectedCineplex;
-	}
-
-	public Cinema getSelectedCinema() {
-		return selectedCinema;
-	}
-
-	public static Movie getSelectedMovie() {
-		return selectedMovie;
-	}
-
-	public static MovieInCinema getSelectedMovieInCinema() {
-		return selectedMovieInCinema;
-	}
-
+	/**
+	 * Set a holiday time
+	 */
 	public void setHoliday() {
 		String temp;
 		while(true){
 			System.out.println("Please type the holiday in format of YYYYMMDD. Input 0 for return");
 			temp = systemScanner.nextLine();
-			if(temp.toCharArray().length==8 && staffMgr.tryParseInteger(temp)){
+			if(temp.toCharArray().length==8 && Main.tryParseInteger(temp)){
 				CinemaDate.addHoliday(temp);
 				System.out.println("Added the date as holiday!");
 			}else if (temp.matches("0")) {
@@ -386,5 +386,39 @@ public class StaffMgr  {
 				continue;
 			}
 		}
+	}
+
+	//Getters
+
+	/**
+	 * Return the list of cineplex
+	 * @return List of cineplexs
+	 */
+	public  ArrayList<Cineplex> getCineplexesList() {
+		return cineplexesList;
+	}
+
+	/**
+	 * Return list of movies
+	 * @return List of movie
+	 */
+	public  ArrayList<Movie> getMoviesList() {
+		return moviesList;
+	}
+
+	/**
+	 * Return the selected cineplex
+	 * @return Currently selected cineplex
+	 */
+	public Cineplex getSelectedCineplex() {
+		return selectedCineplex;
+	}
+
+	/**
+	 * Return the selected cinema
+	 * @return Currently selected cinema
+	 */
+	public Cinema getSelectedCinema() {
+		return selectedCinema;
 	}
 }
