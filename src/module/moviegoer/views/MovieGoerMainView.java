@@ -29,12 +29,12 @@ public class MovieGoerMainView
      */
     public static void run() throws IOException, ParseException {
         String test="";
-        while(mainChoice>0 && mainChoice<5) {
+        while(mainChoice>0 && mainChoice<8) {
             try {
-                System.out.println("\nHOME----------\nPlease Select: \n(1)Select Cineplex\n(2)Display all Movies\n(3)Search movie by name\n(4)Show Booking History\n(5)List Top 5 Movies\n(6)Logout");
+                System.out.println("\nHOME----------\nPlease Select: \n(1)Select Cineplex\n(2)Display All Movies\n(3)Search Movie by Name\n(4)Show Booking History\n(5)List Top 5 Movies\n(6)Review a Movie\n(7)Logout");
                 test=scanner.nextLine();
                 while(!Main.tryParseInteger(test)){
-                    System.out.println("Wrong input please check!");
+                    System.out.println("Wrong input, please enter again!");
                     test=scanner.nextLine();
                 }
                 mainChoice = Integer.parseInt(test);
@@ -68,6 +68,9 @@ public class MovieGoerMainView
                         Top5ListView.run();
                         break;
                     case 6:
+                    	CreateReviewView.run();
+                    	break;
+                    case 7:
                         return;
                     default:
                         System.out.println("Input can not be recognised! Try again please.");

@@ -49,7 +49,7 @@ public class MovieInCinema{
     public void addShowTime(CinemaDate showtime){
         for(CinemaDate c: inCinemaShowTimes){
             if(c.isSameTime(showtime)) {
-                System.out.println("There is a same showtime detected!");
+                System.out.println("Same showtime detected!");
                 return;
             }
         }

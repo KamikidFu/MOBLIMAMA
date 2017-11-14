@@ -34,7 +34,7 @@ public class SeatSelectionView
             System.out.println("Please input your No."+i+" seat selection: (in format x,y where x is row number and y is column number)");
                 selection = scanner.nextLine();
                 if (!movieGoerMgr.bookSeat(selection)) {
-                    System.out.println("The seat is booked or wrong information input! Please select again!");
+                    System.out.println("The seat is booked or error in input! Please select again!");
                     i--;
                 }
 

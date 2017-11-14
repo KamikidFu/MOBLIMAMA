@@ -55,5 +55,4 @@ public class SystemConfigView {
             }
         } while (choice < 3);
     } //end of SystemConfigView
-
 }

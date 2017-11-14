@@ -16,46 +16,45 @@ public class TicketingView {
     private static int[] ticketsType = new int[3]; //adult,child,elderly
 
     public static void run() throws IOException {
-        String selection = "";
-        //List All Movies & Use Number Codes to order them
-        try {
-            while (true) {
-                System.out.println("\nSelected: " + movieGoerMgr.getSelectedMovieOnScene().getOnSceneMovie().getMovieName() + "------\n(1)Book the Movie\n(2)View Movie Info\n(3)Return");
+        String selection="";
+            //List All Movies & Use Number Codes to order them
+            try {
+                System.out.println("\nSelected: " + movieGoerMgr.getSelectedMovieOnScene().getOnSceneMovie().getMovieName() + "------\n(1)Book the Movie\n(2)View Movie Info\n");
                 selection = scanner.nextLine();
-                while (!Main.tryParseInteger(selection)) {
+                while(!Main.tryParseInteger(selection)){
                     System.out.println("Input can not be recognised! Try again please.");
                     selection = scanner.nextLine();
                 }
                 int i = Integer.parseInt(selection);
-                selection = "";
+                selection="";
                 switch (i) {
                     case 1:
-                        System.out.println("How many Adult Tickets?\n");
+                        System.out.println("How many Student Tickets?\n");
                         selection = scanner.nextLine();
-                        while (!Main.tryParseInteger(selection)) {
+                        while(!Main.tryParseInteger(selection)){
                             System.out.println("Input can not be recognised! Try again please.");
                             selection = scanner.nextLine();
                         }
                         ticketsType[0] = Integer.parseInt(selection);
-                        selection = "";
+                        selection="";
 
-                        System.out.println("How many Child Tickets?\n");
+                        System.out.println("How many Senior Citizen Tickets?\n");
                         selection = scanner.nextLine();
-                        while (!Main.tryParseInteger(selection)) {
+                        while(!Main.tryParseInteger(selection)){
                             System.out.println("Input can not be recognised! Try again please.");
                             selection = scanner.nextLine();
                         }
                         ticketsType[1] = Integer.parseInt(selection);
-                        selection = "";
+                        selection="";
 
-                        System.out.println("How many Elderly Tickets?\n");
+                        System.out.println("How many Standard Tickets?\n");
                         selection = scanner.nextLine();
-                        while (!Main.tryParseInteger(selection)) {
+                        while(!Main.tryParseInteger(selection)){
                             System.out.println("Input can not be recognised! Try again please.");
                             selection = scanner.nextLine();
                         }
                         ticketsType[2] = Integer.parseInt(selection);
-                        selection = "";
+                        selection="";
 
                         movieGoerMgr.setTicketing(ticketsType);
                         SeatSelectionView.run();
@@ -63,13 +62,9 @@ public class TicketingView {
                     case 2:
                         movieGoerMgr.printMovieInfo();
                         break;
-                    case 3:
-                        return;
                 }
+            } catch (Exception e) {
+                System.out.println("Input can not be recognised! Try again please.");
             }
-        } catch (Exception e) {
-            System.out.println("Input can not be recognised! Try again please.");
-        }
-
     }
 }

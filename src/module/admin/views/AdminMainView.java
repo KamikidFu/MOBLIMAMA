@@ -30,8 +30,8 @@ public class AdminMainView {
 
 		while (mainChoice < 5) {
 			System.out.println("Please Select:");
-			System.out.println("(1) New Movie");
-			System.out.println("(2) Modify Movie List");
+			System.out.println("(1) Add New Movie");
+			System.out.println("(2) Modify Movie Information");
 			System.out.println("(3) List Top 5 Movie Ranking");
 			System.out.println("(4) System Configuration");
 			System.out.println("(5) Logout");
@@ -76,6 +76,4 @@ public class AdminMainView {
 		}
 		return;
 	}//end of AdminMainView.run()
-
-
 }

@@ -20,7 +20,7 @@ public class EditTicketPrice {
 		if (mainChoice < 3) {
 			System.out.println("Please Select:");
 			System.out.println("(1) Change base price");
-			System.out.println("(2) Don't change");
+			System.out.println("(2) Home");
 			mainChoice = Main.scannerIntegerInput();
 
 			while (mainChoice > 2 || mainChoice <= 0) {
@@ -35,6 +35,7 @@ public class EditTicketPrice {
 				System.out.println("Enter new base price: ");
 				double bp = Main.scannerIntegerInput();
 				TicketPrice.setBasePrice(bp);
+				System.out.println("\nPrice updated! New pricing:");
 				DisplayTicketPrice.run();
 				break;
 			case 2:
@@ -44,18 +45,3 @@ public class EditTicketPrice {
 		return;
 	}//end of EditTicketPrice.run()
 }
-
-
-/*//TicketPrice.displayPrice(); //create price object
-System.out.println("Current base price is $" + TicketPrice.getBasePrice() + ".");
-System.out.println("1) Change base price");
-System.out.println("2) Don't change");
-int change = scanner.nextInt();
-if (change == 1) {
-	System.out.println("Enter the new base price: ");
-	double b = scanner.nextInt();
-	//TicketPrice.setBasePrice(b);
-}
-//TicketPrice.displayNewPrice();
-//TicketPrice.printDialog();
-//displayPrice method prints out pricing table*/

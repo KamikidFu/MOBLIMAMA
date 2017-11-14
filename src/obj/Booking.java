@@ -71,17 +71,54 @@ public class Booking implements IBookingBO, IBookingBiz {
         System.out.println("Hello "+user.getUserName()+"! The following is your booking details:");
         System.out.println("Transaction ID: "+this.bookedTransactionID);
         System.out.println("Movie Goer Name: "+this.bookedMovieGoerName);
-        System.out.println("Sell Date: "+this.bookedSellDate.getCinemaDate());
+        System.out.println("Date of Purchase: "+this.bookedSellDate.getCinemaDate());
         System.out.println("Price: "+NumberFormat.getCurrencyInstance().format(this.bookedPrice));
         System.out.println("Tickets info: ");
             for(int i=0;i<ticketinfo.length;i++){
                 if(i==0 && ticketinfo[i]!=0)
-                    System.out.println("\tAdult ticket(s): "+ticketinfo[i]);
+                    System.out.println("\tStudent ticket(s): "+ticketinfo[i]);
                 if(i==1 && ticketinfo[i]!=0)
-                    System.out.println("\tChild ticket(s): "+ticketinfo[i]);
+                    System.out.println("\tSenior Citizen ticket(s): "+ticketinfo[i]);
                 if(i==2 && ticketinfo[i]!=0)
-                    System.out.println("\tElderly ticket(s): "+ticketinfo[i]);
+                    System.out.println("\tStandard ticket(s): "+ticketinfo[i]);
             }
+    }
+    
+    public static void printTop5BySelling() {
+        ArrayList<String> distinctMovie = new ArrayList<>();
+        for(Booking b: bookings){
+            if(!distinctMovie.contains(b.bookedMovieOnScene.getOnSceneMovie().getMovieName())){
+                distinctMovie.add(b.bookedMovieOnScene.getOnSceneMovie().getMovieName());
+            }
+        }
+        int[] rank = new int[distinctMovie.size()];
+        for(int i=0;i<rank.length;i++){
+            for(Booking b:bookings) {
+                for (int j = 0; j < bookings.size(); j++) {
+                    if(b.bookedMovieOnScene.equals(bookings.get(j).bookedMovieOnScene)){
+                        rank[i]++;
+                    }
+                }
+            }
+        }
+        int temp;
+        int pointer=0, topCounter = 0;
+        String output = "";
+        for(int i=0;i<rank.length;i++) {
+            temp = rank[i];
+            topCounter++;
+            if(topCounter==6) break;
+            for (int j = 0; j < rank.length; j++) {
+                if (temp <= rank[j]) {
+                    temp = rank[j];
+                    pointer = j;
+                }
+            }
+            output+="No."+topCounter+" "+distinctMovie.get(pointer)+" Sold tickets: "+rank[pointer]+"\n";
+            rank[pointer]=0;
+            pointer=0;
+        }
+        System.out.println(output);
     }
 
     /**
@@ -153,6 +190,4 @@ public class Booking implements IBookingBO, IBookingBiz {
     public ArrayList<String> getBookedSeat() {
         return bookedSeat;
     }
-
-
 }

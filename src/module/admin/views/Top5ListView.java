@@ -1,8 +1,6 @@
 package module.admin.views;
 
 import app.Main;
-import obj.Booking;
-import obj.Review;
 
 import java.io.IOException;
 import java.text.ParseException;
@@ -28,7 +26,7 @@ public class Top5ListView {
             System.out.println("Top 5 Movie Listing");
             System.out.println("-------------------------------------");
             System.out.println("(1) By Rating");
-            System.out.println("(2) By selling");
+            System.out.println("(2) By Ticket Sale");
             System.out.println("(3) Home");
 
             System.out.println("\nPlease select your option: ");
@@ -42,7 +40,6 @@ public class Top5ListView {
 
             switch (choice) {
                 case 1:
-                    //TicketSales.displayTop5();
                     Main.printTop5ByRating();
                     break;
 

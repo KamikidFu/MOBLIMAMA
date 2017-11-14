@@ -20,7 +20,7 @@ public class MovieTimeSelectionView
     public static  void run() throws IOException
     {
             //Lists Showtimes
-            System.out.println("Select a timing: \n");
+            System.out.println("Select a showtime: \n");
 
             MovieOnScene tempMovieOnScene = movieGoerMgr.selectMovieOnScene();
             if (tempMovieOnScene != null) {

@@ -106,9 +106,9 @@ public class MovieOnScene{
                     continue;
                 }
                 if(tempBookedSeat[i][j]==1)
-                    oneRowData+="×\t";
+                    oneRowData+="x\t";
                 else
-                    oneRowData+="○\t";
+                    oneRowData+="o\t";
             }
             System.out.println(oneRowData);
             oneRowData="";

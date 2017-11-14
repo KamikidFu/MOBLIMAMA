@@ -67,9 +67,6 @@ public class Cinema {
         this.moviesList.add(movie);
     }
 
-
-
-
     //Getters and setters
 
     /**

@@ -125,14 +125,13 @@ public class StaffMgr  {
 		boolean allFormsFilled = false;
 		Movie movie = new Movie();
 		MovieInCinema newMovieInCinema = new MovieInCinema();
-		System.out.println("-------------------------------------");
-		System.out.println("New Movie");
-		System.out.println("-------------------------------------");
+		System.out.println("New Movie------------------");
 		do {
 			if (!allFormsFilled) {
+				System.out.println("Step 1 of 3----------------");
 				System.out.println("Enter Movie Title: ");
 				mName = systemScanner.nextLine();
-				System.out.println("Enter Movie Type (Digital / 3D/ Blockbuster) : ");
+				System.out.println("Enter Movie Type (Digital / 3D) : ");
 				mType = systemScanner.nextLine();
 				System.out.println("Enter Movie Status (Coming Soon/ Preview / Now Showing / End of Showing) :");
 				mStatus = systemScanner.nextLine();
@@ -148,9 +147,9 @@ public class StaffMgr  {
 			if (!allFormsCorrect) {
 				// if any of the forms are wrong, this portion will check all
 				// the fields
-				System.out.println("\nValidating all data..");
-				if (!mType.matches("Digital") && !mType.matches("3D") && !mType.matches("Blockbuster")) {
-					System.out.println("Please enter a valid movie type (Digital / 3D/ Blockbuster) : \n" );
+				System.out.println("\nChecking Step 1 of 3");
+				if (!mType.matches("Digital") && !mType.matches("3D")) {
+					System.out.println("Please enter a valid movie type (Digital / 3D) : \n" );
 					mType= systemScanner.nextLine();
 				} else if (!mStatus.matches("Coming Soon") && !mStatus.matches("Preview") && !mStatus.matches("Now Showing")
 						&& !mStatus.matches("End of Showing")) {
@@ -159,7 +158,8 @@ public class StaffMgr  {
 				} else {
 					// if all forms entered are correct
 					allFormsCorrect = true;
-					System.out.println("Data verification complete\n");
+					System.out.println("All data in step 1 is correct.");
+					System.out.println("Step 1 of 3 complete\n");
 				}
 			}
 		} while (!allFormsCorrect);
@@ -167,6 +167,7 @@ public class StaffMgr  {
 		if (allFormsCorrect) {
 			// enter all the data
 			movie = new Movie(mName,mType,mStatus,mSynopsis,mDirector);
+			System.out.println("Step 2 of 3: Cast List-----");
 			do {
 				System.out.println("Enter Movie Cast" + i + " Name (Press Enter if no more cast): ");
 				temp = systemScanner.nextLine();
@@ -174,11 +175,12 @@ public class StaffMgr  {
 					movie.addMovieCast(temp);
 					i++;}
 			} while (!temp.isEmpty());
-			System.out.println("Casts added.");
+			System.out.println("Step 2 of 3 completed. Casts added.");
 			staffMgr.getMoviesList().add(movie);
-			System.out.println("Now to set new movie timings.........");
+			System.out.println("Step 3 of 3: Movie Timing--");
 			newMovieInCinema = addShowTime(movie);
-			System.out.println("Movie Show Time added.");
+			System.out.println("Step 3 of 3 completed. Movie Show Time added.");
+			System.out.println("New Movie is added.");
 			if(newMovieInCinema==null){
 				System.err.println("Failed to add new movie to cinema.");
 				addNewMovie();
@@ -222,9 +224,7 @@ public class StaffMgr  {
 		MovieInCinema tempMovieInCinema=null;
 
 		do {
-			System.out.println("-------------------------------------");
-			System.out.println("New Movie Showtime");
-			System.out.println("-------------------------------------");
+			System.out.println("New Movie Showtime---------");
 			System.out.println("\nPress Enter to return Terminate current process");
 			System.out.println("\nCineplex-------------------");
 			for (int p = 0; p < staffMgr.getCineplexesList().size(); p++) {
@@ -234,11 +234,11 @@ public class StaffMgr  {
 			cineplex = systemScanner.nextLine();
 			if(cineplex.isEmpty())
 				break;
-			while(!Main.tryParseInteger(cineplex)){
+			while(!staffMgr.tryParseInteger(cineplex)){
 				System.out.println("Wrong input please check!");
 				cineplex = systemScanner.nextLine();
 			}
-			if (Main.tryParseInteger(cineplex)) {
+			if (staffMgr.tryParseInteger(cineplex)) {
 				staffMgr.selectedCineplex(Integer.parseInt(cineplex)-1);
 			}
 			if(staffMgr.getSelectedCineplex()!=null && !cineplex.isEmpty()) {
@@ -248,11 +248,11 @@ public class StaffMgr  {
 				}
 				System.out.println("Please select one of cinema above!");
 				cinema = systemScanner.nextLine();
-				while(!Main.tryParseInteger(cinema)){
+				while(!staffMgr.tryParseInteger(cinema)){
 					System.out.println("Wrong input please check!");
 					cinema = systemScanner.nextLine();
 				}
-				if (Main.tryParseInteger(cinema)) {
+				if (staffMgr.tryParseInteger(cinema)) {
 					staffMgr.selectCinema(Integer.parseInt(cinema) - 1);
 				}
 				tempMovieInCinema = staffMgr.addMovieInCinemaToCinema(movie, staffMgr.getSelectedCinema());
@@ -262,8 +262,8 @@ public class StaffMgr  {
 					inTime = systemScanner.nextLine();
 					if (!inTime.isEmpty()) {
 						String[] temp1 = inTime.split("/");
-						if(temp1.length==5 && Main.tryParseInteger(temp1[0]) && Main.tryParseInteger(temp1[1]) && Main.tryParseInteger(temp1[2]) &&
-								Main.tryParseInteger(temp1[3]) && Main.tryParseInteger(temp1[4])) {
+						if(temp1.length==5 && staffMgr.tryParseInteger(temp1[0]) && staffMgr.tryParseInteger(temp1[1]) && staffMgr.tryParseInteger(temp1[2]) &&
+								staffMgr.tryParseInteger(temp1[3]) && staffMgr.tryParseInteger(temp1[4])) {
 							if((-1<Integer.parseInt(temp1[0]) && Integer.parseInt(temp1[0])<25) && (-1<Integer.parseInt(temp1[1]) && Integer.parseInt(temp1[1])<61) &&
 									(-1<Integer.parseInt(temp1[2]) && Integer.parseInt(temp1[2])<30) && (-1<Integer.parseInt(temp1[3]) && Integer.parseInt(temp1[3])<13)
 									&& (-1<Integer.parseInt(temp1[4]) && Integer.parseInt(temp1[4])<9999)) {
@@ -293,9 +293,7 @@ public class StaffMgr  {
 	 */
 	public void editMovie() throws IOException {
 
-		System.out.println("-------------------------------------");
-		System.out.println("Edit Movie");
-		System.out.println("-------------------------------------");
+		System.out.println("Edit Movie-----------------");
 		Movie movieToEdit = selectMovie();
 		if(movieToEdit==null){
 			return;
@@ -327,7 +325,7 @@ public class StaffMgr  {
 					movieToEdit.setMovieName(movieName);
 					break;
 				case 2:
-					System.out.println("Enter new Movie Type (Digital / 3D / Blockbuster) : ");
+					System.out.println("Enter new Movie Type (Digital / 3D) : ");
 					movieType = systemScanner.nextLine();
 					movieToEdit.setMovieType(movieType);
 					break;
@@ -376,7 +374,7 @@ public class StaffMgr  {
 		while(true){
 			System.out.println("Please type the holiday in format of YYYYMMDD. Input 0 for return");
 			temp = systemScanner.nextLine();
-			if(temp.toCharArray().length==8 && Main.tryParseInteger(temp)){
+			if(temp.toCharArray().length==8 && staffMgr.tryParseInteger(temp)){
 				CinemaDate.addHoliday(temp);
 				System.out.println("Added the date as holiday!");
 			}else if (temp.matches("0")) {
@@ -385,6 +383,15 @@ public class StaffMgr  {
 				System.out.println("Wrong input, please check!");
 				continue;
 			}
+		}
+	}
+	
+	public boolean tryParseInteger(String string){
+		try{
+			Integer.parseInt(string);
+			return true;
+		}catch (Exception e){
+			return false;
 		}
 	}
 
